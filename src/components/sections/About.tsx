@@ -1,15 +1,16 @@
 import { m } from 'framer-motion'
-import { aboutParagraphs, principles } from '../../content/about'
+import { guruvayoorIntro, principles } from '../../content/about'
 import { images } from '../../content/images'
 import { revealMotion } from '../../lib/motion'
 import { Container } from '../ui/Container'
-import { Ornament } from '../ui/Lotus'
+import { LotusMark, Ornament } from '../ui/Lotus'
 import { ResponsiveImage } from '../ui/ResponsiveImage'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
 /**
- * Mobile reads heading → story → photographs → principles.
+ * Opening section: the Guruvayoor wedding story and Sanskriti's promise.
+ * Mobile reads heading → story → promise → photographs → principles.
  * Desktop places the photographs in the left column beside both text blocks.
  */
 export function About() {
@@ -24,24 +25,38 @@ export function About() {
               <SectionHeading
                 id="about-title"
                 index="01"
-                eyebrow="About Sanskriti"
+                eyebrow={guruvayoorIntro.eyebrow}
                 title={
                   <>
-                    One thoughtful partner for <em>every part of your celebration.</em>
+                    A wedding at Guruvayoor is <em>more than a ceremony.</em>
                   </>
                 }
               />
             </Reveal>
 
             <Reveal delay={0.1} className="mt-7 max-w-xl space-y-5 text-[1.0625rem] leading-[1.75] text-muted sm:mt-8 sm:leading-[1.8]">
-              {aboutParagraphs.map((paragraph) => (
+              {guruvayoorIntro.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+            </Reveal>
+
+            {/* The promise — the one idea every visitor should leave with. */}
+            <Reveal delay={0.15} className="mt-10 border-l border-gold-500/50 pl-6 sm:mt-12 sm:pl-8">
+              <LotusMark className="h-4 w-7 text-gold-500" />
+              <p className="mt-4 font-serif text-[clamp(1.75rem,2.6vw,2.3rem)] leading-[1.18] text-plum-900">
+                {guruvayoorIntro.promise.map((line, i) => (
+                  <span key={line} className={i === guruvayoorIntro.promise.length - 1 ? 'block text-plum-700 italic' : 'block'}>
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <p className="mt-5 text-sm leading-relaxed text-muted">{guruvayoorIntro.company}</p>
             </Reveal>
           </div>
 
           {/* Editorial pair: portrait with an inset detail image. */}
-          <Reveal className="relative mb-14 self-start lg:col-span-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-4 lg:mb-0">
+          {/* Sticky on desktop so the photographs stay beside the longer story as it scrolls. */}
+          <Reveal className="relative mb-14 self-start lg:sticky lg:top-28 lg:col-span-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-4 lg:mb-0">
             <div className="aspect-[3/4] w-[78%] overflow-hidden bg-sand sm:w-[80%]">
               <ResponsiveImage
                 image={images.about}

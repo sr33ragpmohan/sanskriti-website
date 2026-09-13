@@ -146,8 +146,8 @@ export function Services() {
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-4 lg:col-start-9">
             <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
-              Choose complete wedding planning, or only the services you need — for weddings and events in
-              Trivandrum, across Kerala and at the destination of your choice.
+              Choose complete wedding planning, or only the services you need — for weddings at Guruvayoor, and
+              weddings and events across Kerala.
             </p>
           </Reveal>
         </div>

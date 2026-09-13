@@ -3,15 +3,19 @@ import type { ImageAsset } from '../lib/images'
 /**
  * ALL SITE IMAGERY LIVES HERE.
  *
- * Every image below is a temporary placeholder from Unsplash (Hindu / Kerala
- * wedding imagery), used as visual inspiration only — none are photographs of
- * Sanskriti events.
+ * Every image below is a temporary placeholder from Unsplash (free licence),
+ * used as visual inspiration only — none are photographs of Sanskriti events.
+ * Apart from the hero, they deliberately show details (jasmine, brass lamps,
+ * sadya, rituals, temple architecture) rather than identifiable couples, so the
+ * site never presents another family's wedding as Sanskriti's work.
  *
  * To replace one with real photography:
- *   1. Put the file in /public/images/ (e.g. /public/images/gallery/guruvayur-ceremony.jpg).
- *   2. Change `src` to '/images/gallery/guruvayur-ceremony.jpg'.
+ *   1. Put the file in /public/images/ (e.g. /public/images/gallery/guruvayoor-ceremony.jpg).
+ *   2. Change `src` to '/images/gallery/guruvayoor-ceremony.jpg'.
  *   3. Update `alt`, and set `placeholder: false` (or delete the line).
  * Once no gallery image is a placeholder, the "visual inspiration" note disappears.
+ *
+ * Only use photographs Sanskriti owns or has permission to publish.
  *
  * Crops: the hero sits in a tall arch, the About images are portrait, the
  * featured service image is roughly square. `position` fine-tunes the crop.
@@ -32,89 +36,89 @@ export const images = {
     position: '46% 50%',
   },
   about: {
-    src: 'https://images.unsplash.com/photo-1727430228383-aa1fb59db8bf',
-    alt: 'A bride in a traditional Kerala silk saree with gold jewellery',
+    src: 'https://images.unsplash.com/photo-1783255166275-412695f76a2a',
+    alt: 'Strands of jasmine woven into a bride’s long dark hair',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/a-woman-in-a-sari-posing-for-a-picture-Rm9DL9DmGi4',
-    position: '50% 25%',
+    credit: 'https://unsplash.com/photos/long-dark-hair-adorned-with-jasmine-flowers-oLeO8eLkuEs',
+    position: '50% 40%',
   },
   aboutDetail: {
-    src: 'https://images.unsplash.com/photo-1727430201245-fb796167e302',
-    alt: 'A Kerala bride and groom embraced by family members',
+    src: 'https://images.unsplash.com/photo-1775427528127-a66ce3bb2bcb',
+    alt: 'A lit brass oil lamp',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-hugging-each-other-VJP7K4uihUA',
-    position: '45% 15%',
+    credit: 'https://unsplash.com/photos/a-brass-oil-lamp-with-two-flames-burning-7tzPYzbCQtM',
+    position: '40% 50%',
   },
   featuredService: {
-    src: 'https://images.unsplash.com/photo-1744805624954-a6686543c3ff',
-    alt: 'A wedding stage decorated with cascading golden floral strands at dusk',
+    src: 'https://images.unsplash.com/photo-1783255166346-b7c82195ba34',
+    alt: 'A brass pot with coconut, bananas and oil lamps arranged for a wedding ritual',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/a-beautifully-decorated-stage-set-for-a-ceremony-UX3-_dGbCzk',
+    credit: 'https://unsplash.com/photos/brass-pot-coconut-bananas-and-oil-lamps-for-a-ritual-gc-JtFntUSU',
+    position: '50% 60%',
   },
   cta: {
     // Decorative background — empty alt on purpose.
-    src: 'https://images.unsplash.com/photo-1779540894601-f852a255efbe',
+    src: 'https://images.unsplash.com/photo-1771929712047-3e7022669175',
     alt: '',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/traditional-building-and-tree-illuminated-with-festive-lights-at-night-pMReUvJTyQA',
+    credit: 'https://unsplash.com/photos/many-brass-oil-lamps-lit-with-flickering-flames-xQBOW3d1uxo',
   },
 } satisfies Record<string, ImageAsset>
 
 export const galleryItems: GalleryItem[] = [
   {
-    caption: 'Ceremonies',
-    image: {
-      src: 'https://images.unsplash.com/photo-1574017144578-85168ddb5040',
-      alt: 'A South Indian Hindu bride and groom in garlands during their wedding ceremony',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/people-gathering-in-wedding-ceremony-surrounded-with-people-sDHb-yIvGvg',
-      position: '30% 50%',
-    },
-  },
-  {
-    caption: 'Portraits',
-    image: {
-      src: 'https://images.unsplash.com/photo-1671852781674-c7dca34a1964',
-      alt: 'A Kerala bride and groom wearing wedding garlands',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/a-man-and-a-woman-standing-next-to-each-other-ZghCtT63KMk',
-      position: '38% 50%',
-    },
-  },
-  {
     caption: 'Rituals',
     image: {
-      src: 'https://images.unsplash.com/photo-1754782915842-aa4fca6c203a',
-      alt: 'A couple showered with flower petals during a traditional Hindu wedding ceremony',
+      src: 'https://images.unsplash.com/photo-1768341395921-93a8444e007e',
+      alt: 'Hands tying a sacred thread during a traditional Hindu wedding ceremony',
       placeholder: true,
-      credit: 'https://unsplash.com/photos/couple-showered-with-flower-petals-during-traditional-indian-wedding-ceremony-v5sG5-zYthE',
+      credit: 'https://unsplash.com/photos/hands-tying-a-sacred-thread-during-a-traditional-ceremony-3Dj4SNHu28c',
     },
   },
   {
-    caption: 'The Bride',
+    caption: 'Temple Traditions',
     image: {
-      src: 'https://images.unsplash.com/photo-1673413349218-ba4de23c2958',
-      alt: 'A bride in a silk saree and temple jewellery',
+      src: 'https://images.unsplash.com/photo-1788614347238-05fdd744d60d',
+      alt: 'A traditional Kerala temple with a tiled roof beside a green temple pond',
       placeholder: true,
-      credit: 'https://unsplash.com/photos/a-woman-in-a-sari-and-jewelry-posing-for-a-picture-wrRVsNyuCW4',
+      credit: 'https://unsplash.com/photos/kerala-temple-beside-green-pond-BL2Y0aaVl24',
+      position: '55% 50%',
     },
   },
   {
-    caption: 'Blessings',
+    caption: 'Jasmine',
     image: {
-      src: 'https://images.unsplash.com/photo-1741201864879-c5e7f81c98b0',
-      alt: 'A bride receiving blessings as petals fall during a Hindu wedding',
+      src: 'https://images.unsplash.com/photo-1780247584867-d332ed89d423',
+      alt: 'Strings of white jasmine garlands hanging in rows',
       placeholder: true,
-      credit: 'https://unsplash.com/photos/bride-and-groom-celebrate-a-hindu-wedding-ceremony-etDySNihXU0',
+      credit: 'https://unsplash.com/photos/white-jasmine-flower-garlands-hanging-from-a-wooden-stick-od2IVIAMIjM',
     },
   },
   {
-    caption: 'Moments',
+    caption: 'Sadya',
     image: {
-      src: 'https://images.unsplash.com/photo-1682933766299-81bf6fc4f2cb',
-      alt: 'A Kerala bride and groom in wedding garlands walking hand in hand',
+      src: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f',
+      alt: 'A traditional Kerala sadya served on a banana leaf',
       placeholder: true,
-      credit: 'https://unsplash.com/photos/a-man-and-woman-walking-down-a-street-holding-hands-b9xLrj7w2AY',
+      credit: 'https://unsplash.com/photos/traditional-south-indian-meal-on-leaf-yCIcDyKm440',
+    },
+  },
+  {
+    caption: 'Details',
+    image: {
+      src: 'https://images.unsplash.com/photo-1772127822454-8566c23084df',
+      alt: 'A jasmine garland with pearls beside brass lamps',
+      placeholder: true,
+      credit: 'https://unsplash.com/photos/jasmine-garland-with-pearls-on-a-table-3lUv0ZynLLE',
+    },
+  },
+  {
+    caption: 'Brass & Light',
+    image: {
+      src: 'https://images.unsplash.com/photo-1760835249761-dc1ad2d7d759',
+      alt: 'Ornate traditional brass oil lamps',
+      placeholder: true,
+      credit: 'https://unsplash.com/photos/several-ornate-brass-oil-lamps-with-lit-flames-CfcTreCI3pg',
     },
   },
 ]

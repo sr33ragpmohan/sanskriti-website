@@ -25,11 +25,9 @@ export function Hero() {
         <div className="pt-4 sm:pt-6 lg:col-span-7 lg:row-start-1 lg:self-end lg:pt-0">
           <p className="hero-rise flex items-center gap-4" style={{ animationDelay: '100ms' }}>
             <LotusMark className="h-4 w-7 shrink-0 text-gold-500" />
-            <span className="eyebrow text-plum-700 sm:hidden">
-              {site.location.city} · {site.location.region}
-            </span>
+            <span className="eyebrow text-plum-700 sm:hidden">Guruvayoor Weddings · {site.location.region}</span>
             <span className="eyebrow hidden text-plum-700 sm:inline">
-              {site.tagline} · {site.location.city}
+              Guruvayoor Weddings · {site.tagline}
             </span>
           </p>
 

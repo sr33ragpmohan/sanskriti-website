@@ -3,10 +3,17 @@ export interface Principle {
   description: string
 }
 
-export const aboutParagraphs = [
-  'A wedding brings together many moving pieces — venues, vendors, rituals, families, guests and timelines. Sanskriti is a wedding planning and event management company in Trivandrum, started by four partners to bring all of those pieces together under one coordinated service.',
-  'We believe a beautiful celebration comes from careful planning and quiet attention to detail. Our role is to plan, design and coordinate, so that you and your guests can simply be present for the occasion.',
-]
+/** Opening section copy — Sanskriti's focus on Guruvayoor weddings. */
+export const guruvayoorIntro = {
+  eyebrow: 'Weddings at Guruvayoor',
+  paragraphs: [
+    'It is a deeply meaningful occasion that brings together tradition, family and countless details.',
+    'Sanskriti brings together the essential services required to plan and execute your wedding seamlessly — from venue and catering to décor, photography, accommodation, transportation and guest management.',
+  ],
+  /** Rendered as a three-line pull statement. */
+  promise: ['One team.', 'One point of coordination.', 'Every detail taken care of.'],
+  company: 'Sanskriti Wedding Planners & Event Organizers is based in Trivandrum and was started by four partners.',
+}
 
 export const principles: Principle[] = [
   { title: 'Thoughtful planning', description: 'A clear plan shaped around your family, traditions and priorities.' },
