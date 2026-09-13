@@ -4,4 +4,5 @@ dist
 .DS_Store
 .vite
 dist-ssr
+.wrangler
 *.tsbuildinfo
