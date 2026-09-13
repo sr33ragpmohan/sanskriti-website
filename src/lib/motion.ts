@@ -7,6 +7,6 @@ export function revealMotion(delay = 0, y = 24) {
     initial: { opacity: 0, y },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: '0px 0px -10% 0px' },
-    transition: { duration: 0.9, ease: EASE_LUXE, delay },
+    transition: { duration: 1.05, ease: EASE_LUXE, delay },
   } as const
 }

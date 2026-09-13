@@ -1,4 +1,6 @@
+import { m } from 'framer-motion'
 import { cn } from '../../lib/cn'
+import { EASE_LUXE } from '../../lib/motion'
 
 /** Line-drawn lotus, taken from the lotus beneath the "S" in the Sanskriti logo. */
 export function LotusMark({ className }: { className?: string }) {
@@ -21,13 +23,23 @@ export function LotusMark({ className }: { className?: string }) {
   )
 }
 
-/** Hairline — lotus — hairline. Used sparingly as a section divider. Colour via `text-*`. */
+const drawIn = {
+  initial: { scaleX: 0 },
+  whileInView: { scaleX: 1 },
+  viewport: { once: true, margin: '0px 0px -10% 0px' },
+  transition: { duration: 1.6, ease: EASE_LUXE },
+} as const
+
+/**
+ * Hairline — lotus — hairline. Used sparingly as a section divider. Colour via `text-*`.
+ * The hairlines draw outward from the lotus as it scrolls into view; the lotus floats.
+ */
 export function Ornament({ className }: { className?: string }) {
   return (
     <div aria-hidden className={cn('flex items-center justify-center gap-5', className)}>
-      <span className="h-px flex-1 bg-linear-to-r from-transparent to-current opacity-50" />
-      <LotusMark className="h-5 w-9 shrink-0" />
-      <span className="h-px flex-1 bg-linear-to-l from-transparent to-current opacity-50" />
+      <m.span {...drawIn} className="h-px flex-1 origin-right bg-linear-to-r from-transparent to-current opacity-50" />
+      <LotusMark className="float-soft h-5 w-9 shrink-0" />
+      <m.span {...drawIn} className="h-px flex-1 origin-left bg-linear-to-l from-transparent to-current opacity-50" />
     </div>
   )
 }

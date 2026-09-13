@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
+import { m } from 'framer-motion'
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 import { site } from '../../config/site'
 import { cn } from '../../lib/cn'
 import { mailtoHref, telHref, whatsappHref } from '../../lib/contact-links'
+import { revealMotion } from '../../lib/motion'
 import { Container } from '../ui/Container'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -66,27 +68,24 @@ export function Contact() {
       {/* grid-cols-1 (minmax(0,1fr)) stops long unbreakable text from widening the page on phones. */}
       <Container className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-5">
-          <Reveal>
-            <SectionHeading
-              id="contact-title"
-              index="05"
-              eyebrow="Contact"
-              title={
-                <>
-                  Start planning <em>with Sanskriti.</em>
-                </>
-              }
-            />
-            <p className="mt-6 leading-[1.75] text-muted lg:text-lg">
-              Share a few details about your wedding or event — the date, the place and the kind of celebration you have
-              in mind — and we will get back to you to talk it through.
-            </p>
-          </Reveal>
+          <SectionHeading
+            id="contact-title"
+            index="05"
+            eyebrow="Contact"
+            title={
+              <>
+                Start planning <em>with Sanskriti.</em>
+              </>
+            }
+          />
+          <m.p {...revealMotion(0.2, 18)} className="mt-6 leading-[1.75] text-muted lg:text-lg">
+            Share a few details about your wedding or event — the date, the place and the kind of celebration you have in
+            mind — and we will get back to you to talk it through.
+          </m.p>
 
-          {/* Full-width, thumb-sized contact rows — WhatsApp first. */}
-          <Reveal delay={0.1}>
-            <ul className="mt-10 divide-y divide-plum-900/10 border-y border-plum-900/10">
-              <li>
+          {/* Full-width, thumb-sized contact rows — WhatsApp first. They arrive one after another. */}
+          <ul className="mt-10 divide-y divide-plum-900/10 border-y border-plum-900/10">
+            <m.li {...revealMotion(0.1, 14)}>
                 <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={rowLink}>
                   <RowIcon>
                     <WhatsAppIcon />
@@ -94,9 +93,9 @@ export function Contact() {
                   <RowText label="WhatsApp">Message us directly</RowText>
                   <RowArrow />
                 </a>
-              </li>
+              </m.li>
 
-              <li className="flex gap-4 py-4">
+              <m.li {...revealMotion(0.18, 14)} className="flex gap-4 py-4">
                 <RowIcon className="mt-0.5">
                   <Phone strokeWidth={1.4} />
                 </RowIcon>
@@ -116,9 +115,9 @@ export function Contact() {
                     ))}
                   </ul>
                 </div>
-              </li>
+              </m.li>
 
-              <li>
+              <m.li {...revealMotion(0.26, 14)}>
                 <a href={mailtoHref()} className={rowLink}>
                   <RowIcon>
                     <Mail strokeWidth={1.4} />
@@ -129,21 +128,20 @@ export function Contact() {
                   </RowText>
                   <RowArrow className="max-[399px]:hidden" />
                 </a>
-              </li>
+              </m.li>
 
-              <li className="flex min-h-[4.75rem] items-center gap-4 py-4">
+              <m.li {...revealMotion(0.34, 14)} className="flex min-h-[4.75rem] items-center gap-4 py-4">
                 <RowIcon>
                   <MapPin strokeWidth={1.4} />
                 </RowIcon>
                 <RowText label="Location">
                   {site.location.city} ({site.location.cityOfficial}), {site.location.region}
                 </RowText>
-              </li>
+              </m.li>
             </ul>
-          </Reveal>
         </div>
 
-        <Reveal delay={0.15} className="lg:col-span-7">
+        <Reveal delay={0.25} className="lg:col-span-7">
           <EnquiryForm />
         </Reveal>
       </Container>
