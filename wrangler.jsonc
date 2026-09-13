@@ -1,0 +1,12 @@
+{
+  // Static-assets-only Worker: the site is prerendered at build time
+  // (`npm run build`), so there is no server code and no `main` entry.
+  // Keeping this file in the repo also stops Workers Builds' automatic
+  // configuration from rewriting the Vite setup during deploy.
+  // `name` must match the Worker name in the Cloudflare dashboard.
+  "name": "sanskriti-website",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
