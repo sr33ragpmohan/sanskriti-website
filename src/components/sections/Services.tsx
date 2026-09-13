@@ -6,7 +6,7 @@ import { cn } from '../../lib/cn'
 import { revealMotion } from '../../lib/motion'
 import { TextLink } from '../ui/Button'
 import { Container } from '../ui/Container'
-import { ResponsiveImage } from '../ui/ResponsiveImage'
+import { ParallaxMedia } from '../ui/ParallaxMedia'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
@@ -29,22 +29,33 @@ function ServiceIcon({ service, size = 'md', className }: { service: Service; si
         className,
       )}
     >
-      <Icon className={iconSizes[size].glyph} strokeWidth={1.25} aria-hidden />
+      {/* The glyph tilts and grows a touch on hover. */}
+      <Icon
+        className={cn(
+          iconSizes[size].glyph,
+          'transition-transform duration-700 ease-luxe group-hover:-rotate-6 group-hover:scale-110 motion-reduce:transition-none',
+        )}
+        strokeWidth={1.25}
+        aria-hidden
+      />
     </span>
   )
 }
 
 function FeaturedServiceCard({ service }: { service: Service }) {
   return (
-    <m.li {...revealMotion()} className="group grid bg-ivory sm:col-span-2 md:grid-cols-2">
-      <div className="relative aspect-[3/2] overflow-hidden bg-sand sm:aspect-auto sm:min-h-64 md:order-2 md:min-h-full">
-        <ResponsiveImage
-          image={images.featuredService}
-          sizes="(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 100vw"
-          widths={[480, 800, 1200]}
-          className="absolute inset-0 size-full object-cover transition-transform duration-[1400ms] ease-luxe group-hover:scale-[1.04]"
-        />
-      </div>
+    <m.li
+      {...revealMotion()}
+      className="group relative grid bg-ivory transition-shadow duration-700 ease-luxe hover:z-10 hover:shadow-[0_32px_60px_-42px_rgba(46,12,37,0.5)] sm:col-span-2 md:grid-cols-2"
+    >
+      <ParallaxMedia
+        image={images.featuredService}
+        sizes="(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 100vw"
+        widths={[480, 800, 1200]}
+        distance={20}
+        className="aspect-[3/2] bg-sand sm:aspect-auto sm:min-h-64 md:order-2 md:min-h-full"
+        imgClassName="transition-transform duration-[1400ms] ease-luxe group-hover:scale-[1.05]"
+      />
       <div className="flex flex-col p-7 sm:p-10 lg:p-12">
         <div className="hidden items-start justify-between sm:flex">
           <ServiceIcon service={service} size="lg" />
@@ -69,8 +80,13 @@ function FeaturedServiceCard({ service }: { service: Service }) {
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <m.li
-      {...revealMotion((index % 3) * 0.06, 16)}
-      className="group relative hidden min-h-[18rem] flex-col bg-parchment p-8 transition-colors duration-500 ease-luxe hover:bg-ivory sm:flex sm:p-10"
+      {...revealMotion((index % 3) * 0.08, 18)}
+      className={cn(
+        'group relative hidden min-h-[18rem] flex-col bg-parchment p-8 sm:flex sm:p-10',
+        // Hover: a 4px lift, a soft shadow and the lighter ground.
+        'transition-[background-color,translate,box-shadow] duration-500 ease-luxe',
+        'hover:z-10 hover:-translate-y-1 hover:bg-ivory hover:shadow-[0_28px_50px_-36px_rgba(46,12,37,0.5)] motion-reduce:hover:translate-y-0',
+      )}
     >
       <div className="flex items-start justify-between">
         <ServiceIcon service={service} />
@@ -132,7 +148,7 @@ export function Services() {
     <section id="services" aria-labelledby="services-title" className="bg-parchment py-20 sm:py-32 lg:py-40">
       <Container>
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-end">
-          <Reveal className="lg:col-span-7">
+          <div className="lg:col-span-7">
             <SectionHeading
               id="services-title"
               index="02"
@@ -143,8 +159,8 @@ export function Services() {
                 </>
               }
             />
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-4 lg:col-start-9">
+          </div>
+          <Reveal delay={0.2} className="lg:col-span-4 lg:col-start-9">
             <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
               Choose complete wedding planning, or only the services you need — for weddings at Guruvayoor, and
               weddings and events across Kerala.
