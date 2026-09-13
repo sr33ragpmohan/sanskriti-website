@@ -12,7 +12,7 @@ export const guruvayoorIntro = {
   ],
   /** Rendered as a three-line pull statement. */
   promise: ['One team.', 'One point of coordination.', 'Every detail taken care of.'],
-  company: 'Sanskriti Wedding Planners & Event Organizers is based in Trivandrum and was started by four partners.',
+  company: 'Sanskriti Wedding Planners & Event Organizers is based in Trivandrum and was started by three partners.',
 }
 
 export const principles: Principle[] = [

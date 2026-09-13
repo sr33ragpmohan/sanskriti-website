@@ -3,11 +3,11 @@ import type { ImageAsset } from '../lib/images'
 /**
  * ALL SITE IMAGERY LIVES HERE.
  *
- * Every image below is a temporary placeholder from Unsplash (free licence),
- * used as visual inspiration only — none are photographs of Sanskriti events.
- * Apart from the hero, they deliberately show details (jasmine, brass lamps,
- * sadya, rituals, temple architecture) rather than identifiable couples, so the
- * site never presents another family's wedding as Sanskriti's work.
+ * Every image below is a temporary placeholder (Unsplash / Pexels, free
+ * licences), used as visual inspiration only — none are photographs of
+ * Sanskriti events. Apart from the hero, they show details, décor and temples
+ * rather than identifiable faces, so the site never presents another family's
+ * wedding as Sanskriti's work.
  *
  * To replace one with real photography:
  *   1. Put the file in /public/images/ (e.g. /public/images/gallery/guruvayoor-ceremony.jpg).
@@ -19,13 +19,8 @@ import type { ImageAsset } from '../lib/images'
  *
  * Crops: the hero sits in a tall arch, the About images are portrait, the
  * featured service image is roughly square. `position` fine-tunes the crop.
- * `credit` links to the original Unsplash page.
+ * `credit` links to the original photo page.
  */
-
-export interface GalleryItem {
-  image: ImageAsset
-  caption: string
-}
 
 export const images = {
   hero: {
@@ -65,60 +60,46 @@ export const images = {
   },
 } satisfies Record<string, ImageAsset>
 
-export const galleryItems: GalleryItem[] = [
+/**
+ * Gallery photographs, no captions. On desktop the masonry fills column by
+ * column, so items 1, 3 and 5 form the top row and 2, 4 and 6 the second row.
+ */
+export const galleryImages: ImageAsset[] = [
   {
-    caption: 'Rituals',
-    image: {
-      src: 'https://images.unsplash.com/photo-1768341395921-93a8444e007e',
-      alt: 'Hands tying a sacred thread during a traditional Hindu wedding ceremony',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/hands-tying-a-sacred-thread-during-a-traditional-ceremony-3Dj4SNHu28c',
-    },
+    src: 'https://images.unsplash.com/photo-1768341395921-93a8444e007e',
+    alt: 'Hands tying a sacred thread during a traditional Hindu wedding ceremony',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/hands-tying-a-sacred-thread-during-a-traditional-ceremony-3Dj4SNHu28c',
   },
   {
-    caption: 'Temple Traditions',
-    image: {
-      src: 'https://images.unsplash.com/photo-1788614347238-05fdd744d60d',
-      alt: 'A traditional Kerala temple with a tiled roof beside a green temple pond',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/kerala-temple-beside-green-pond-BL2Y0aaVl24',
-      position: '55% 50%',
-    },
+    // Pexels serves resized images via query parameters.
+    src: 'https://images.pexels.com/photos/33928310/pexels-photo-33928310.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    alt: 'A traditional Kerala temple with a golden flagstaff and marigold garlands',
+    placeholder: true,
+    credit: 'https://www.pexels.com/photo/traditional-temple-in-tropical-landscape-33928310/',
   },
   {
-    caption: 'Jasmine',
-    image: {
-      src: 'https://images.unsplash.com/photo-1780247584867-d332ed89d423',
-      alt: 'Strings of white jasmine garlands hanging in rows',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/white-jasmine-flower-garlands-hanging-from-a-wooden-stick-od2IVIAMIjM',
-    },
+    src: 'https://images.unsplash.com/photo-1731441326210-bfcb6595e93a',
+    alt: 'A bride’s hands with gold bangles and henna resting on gold embroidered fabric',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/a-close-up-of-a-womans-hands-with-gold-jewelry-MOT1EDUYJTU',
   },
   {
-    caption: 'Sadya',
-    image: {
-      src: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f',
-      alt: 'A traditional Kerala sadya served on a banana leaf',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/traditional-south-indian-meal-on-leaf-yCIcDyKm440',
-    },
+    src: 'https://images.unsplash.com/photo-1744805624954-a6686543c3ff',
+    alt: 'A wedding mandap decorated with cascading golden floral strands',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/a-beautifully-decorated-stage-set-for-a-ceremony-UX3-_dGbCzk',
   },
   {
-    caption: 'Details',
-    image: {
-      src: 'https://images.unsplash.com/photo-1772127822454-8566c23084df',
-      alt: 'A jasmine garland with pearls beside brass lamps',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/jasmine-garland-with-pearls-on-a-table-3lUv0ZynLLE',
-    },
+    src: 'https://images.unsplash.com/photo-1772127822454-8566c23084df',
+    alt: 'A jasmine garland with pearls beside brass lamps',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/jasmine-garland-with-pearls-on-a-table-3lUv0ZynLLE',
   },
   {
-    caption: 'Brass & Light',
-    image: {
-      src: 'https://images.unsplash.com/photo-1760835249761-dc1ad2d7d759',
-      alt: 'Ornate traditional brass oil lamps',
-      placeholder: true,
-      credit: 'https://unsplash.com/photos/several-ornate-brass-oil-lamps-with-lit-flames-CfcTreCI3pg',
-    },
+    src: 'https://images.unsplash.com/photo-1772127822562-a898d9f5733c',
+    alt: 'An outdoor wedding mandap decorated with flowers, with seating for guests',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/outdoor-wedding-ceremony-setup-with-elegant-seating-arrangements--fEotnMjQ70',
   },
 ]
