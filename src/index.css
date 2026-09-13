@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens — derived from the Sanskriti logo (gold medallion) and the
+ * business card (deep plum ground). Change colours and fonts here only.
+ */
+@theme {
+  --font-serif: "Cormorant Garamond Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-plum-950: #22061c;
+  --color-plum-900: #350a2c;
+  --color-plum-800: #4d0f40;
+  --color-plum-700: #6b1459;
+
+  --color-ivory: #fbf7f0;
+  --color-cream: #f4ece0;
+  --color-sand: #e7dac6;
+
+  --color-gold-200: #efdcae;
+  --color-gold-300: #e3c585;
+  --color-gold-400: #d1aa5e;
+  --color-gold-500: #b88b3e;
+  --color-gold-600: #9a702b;
+  --color-gold-700: #7a5620;
+
+  --color-ink: #2b1a26;
+  --color-muted: #6d5b66;
+
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-300);
+    color: var(--color-plum-950);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Small uppercase label used above headings and in navigation. */
+@utility eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-gold-400);
+  color: var(--color-plum-950);
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Hero page-load animation. CSS (not JS) so it runs before hydration. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 1.2s var(--ease-luxe) both;
+}
+
+.hero-settle {
+  animation: hero-settle 3.2s var(--ease-luxe) both;
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-cue {
+  animation: scroll-cue 2.4s var(--ease-luxe) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-settle,
+  .scroll-cue {
+    animation: none;
+  }
+}
