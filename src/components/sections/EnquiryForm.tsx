@@ -48,8 +48,8 @@ export function EnquiryForm() {
   }
 
   return (
-    <div className="bg-white p-7 shadow-[0_40px_100px_-50px_rgba(53,10,44,0.35)] ring-1 ring-plum-900/8 sm:p-12">
-      <h3 className="font-serif text-[2rem] leading-tight font-medium text-plum-900">Send us an enquiry</h3>
+    <div className="border border-plum-900/10 bg-white p-7 sm:p-12">
+      <h3 className="font-serif text-[2.1rem] leading-tight text-plum-900">Send us an enquiry</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Your details open in WhatsApp, ready for you to review and send. Nothing is stored on this website.
       </p>
@@ -91,7 +91,7 @@ export function EnquiryForm() {
         </div>
 
         <div className="flex flex-col gap-5 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-          <button type="submit" className={buttonClasses('plum', 'cursor-pointer')}>
+          <button type="submit" className={buttonClasses('primary', 'cursor-pointer')}>
             <WhatsAppIcon className="size-4" />
             Continue on WhatsApp
           </button>

@@ -6,6 +6,7 @@ import { site } from '../../config/site'
 import { mailtoHref, telHref, whatsappHref } from '../../lib/contact-links'
 import { EASE_LUXE } from '../../lib/motion'
 import { Button } from '../ui/Button'
+import { Ornament } from '../ui/Lotus'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
 interface MobileMenuProps {
@@ -26,27 +27,27 @@ export function MobileMenu({ onNavigate }: MobileMenuProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.35, ease: EASE_LUXE }}
-      className="fixed inset-0 -z-10 flex flex-col overflow-y-auto bg-plum-950 px-6 pt-28 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-ivory sm:px-10 lg:hidden"
+      className="fixed inset-0 -z-10 flex flex-col overflow-y-auto bg-ivory px-6 pt-28 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-10 lg:hidden"
     >
       <nav aria-label="Mobile">
         <ul>
           {navigation.map((item, i) => (
             <m.li
               key={item.href}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: EASE_LUXE, delay: 0.06 + i * 0.05 }}
+              transition={{ duration: 0.6, ease: EASE_LUXE, delay: 0.05 + i * 0.05 }}
             >
               <a
                 ref={i === 0 ? firstLinkRef : undefined}
                 href={item.href}
                 onClick={onNavigate}
-                className="flex items-baseline justify-between border-b border-ivory/10 py-4 font-serif text-[2.4rem] leading-tight focus-visible:text-gold-300 focus-visible:outline-none"
+                className="flex items-baseline gap-5 border-b border-plum-900/10 py-4 text-plum-900 focus-visible:text-plum-700 focus-visible:outline-none"
               >
-                {item.label}
-                <span aria-hidden className="eyebrow text-gold-300/70">
+                <span aria-hidden className="w-6 font-serif text-base text-gold-600 italic">
                   {String(i + 1).padStart(2, '0')}
                 </span>
+                <span className="font-serif text-[2.35rem] leading-tight">{item.label}</span>
               </a>
             </m.li>
           ))}
@@ -57,17 +58,21 @@ export function MobileMenu({ onNavigate }: MobileMenuProps) {
         className="mt-auto pt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.35 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Button href={whatsappHref()} external variant="gold" icon={<WhatsAppIcon />}>
+        <Ornament className="text-gold-500" />
+        <p className="eyebrow mt-5 text-center text-muted">
+          {site.location.city} · {site.location.region}
+        </p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />}>
             WhatsApp Us
           </Button>
-          <Button href={telHref()} variant="outline-light" icon={<Phone />}>
+          <Button href={telHref()} variant="outline" icon={<Phone />}>
             Call Us
           </Button>
         </div>
-        <a href={mailtoHref()} className="mt-6 block text-center text-sm text-ivory/60 [overflow-wrap:anywhere] hover:text-ivory">
+        <a href={mailtoHref()} className="mt-5 block text-center text-sm text-muted [overflow-wrap:anywhere]">
           {site.contact.email}
         </a>
       </m.div>

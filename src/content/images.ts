@@ -13,6 +13,8 @@ import type { ImageAsset } from '../lib/images'
  *   3. Update `alt`, and set `placeholder: false` (or delete the line).
  * Once no gallery image is a placeholder, the "visual inspiration" note disappears.
  *
+ * Crops: the hero sits in a tall arch, the About images are portrait, the
+ * featured service image is roughly square. `position` fine-tunes the crop.
  * `credit` links to the original Unsplash page.
  */
 
@@ -27,14 +29,27 @@ export const images = {
     alt: 'A bride and groom’s hands joined beside the sacred fire during a Hindu wedding ritual',
     placeholder: true,
     credit: 'https://unsplash.com/photos/a-close-up-of-two-people-holding-hands-lAze38kfdAs',
-    position: '62% 40%',
+    position: '46% 50%',
   },
   about: {
     src: 'https://images.unsplash.com/photo-1727430228383-aa1fb59db8bf',
     alt: 'A bride in a traditional Kerala silk saree with gold jewellery',
     placeholder: true,
     credit: 'https://unsplash.com/photos/a-woman-in-a-sari-posing-for-a-picture-Rm9DL9DmGi4',
-    position: '50% 20%',
+    position: '50% 25%',
+  },
+  aboutDetail: {
+    src: 'https://images.unsplash.com/photo-1727430201245-fb796167e302',
+    alt: 'A Kerala bride and groom embraced by family members',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-hugging-each-other-VJP7K4uihUA',
+    position: '40% 40%',
+  },
+  featuredService: {
+    src: 'https://images.unsplash.com/photo-1744805624954-a6686543c3ff',
+    alt: 'A wedding stage decorated with cascading golden floral strands at dusk',
+    placeholder: true,
+    credit: 'https://unsplash.com/photos/a-beautifully-decorated-stage-set-for-a-ceremony-UX3-_dGbCzk',
   },
   cta: {
     // Decorative background — empty alt on purpose.
@@ -53,7 +68,7 @@ export const galleryItems: GalleryItem[] = [
       alt: 'A South Indian Hindu bride and groom in garlands during their wedding ceremony',
       placeholder: true,
       credit: 'https://unsplash.com/photos/people-gathering-in-wedding-ceremony-surrounded-with-people-sDHb-yIvGvg',
-      position: '40% 50%',
+      position: '30% 50%',
     },
   },
   {
@@ -63,7 +78,7 @@ export const galleryItems: GalleryItem[] = [
       alt: 'A Kerala bride and groom wearing wedding garlands',
       placeholder: true,
       credit: 'https://unsplash.com/photos/a-man-and-a-woman-standing-next-to-each-other-ZghCtT63KMk',
-      position: '35% 50%',
+      position: '38% 50%',
     },
   },
   {
@@ -76,12 +91,12 @@ export const galleryItems: GalleryItem[] = [
     },
   },
   {
-    caption: 'Families',
+    caption: 'The Bride',
     image: {
-      src: 'https://images.unsplash.com/photo-1727430201245-fb796167e302',
-      alt: 'A Kerala bride and groom embraced by family members',
+      src: 'https://images.unsplash.com/photo-1673413349218-ba4de23c2958',
+      alt: 'A bride in a silk saree and temple jewellery',
       placeholder: true,
-      credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-hugging-each-other-VJP7K4uihUA',
+      credit: 'https://unsplash.com/photos/a-woman-in-a-sari-and-jewelry-posing-for-a-picture-wrRVsNyuCW4',
     },
   },
   {

@@ -32,6 +32,7 @@ export function Contact() {
           <Reveal>
             <SectionHeading
               id="contact-title"
+              index="05"
               eyebrow="Contact"
               title={
                 <>

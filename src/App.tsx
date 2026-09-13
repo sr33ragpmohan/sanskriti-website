@@ -1,5 +1,6 @@
 import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion'
 import { Footer } from './components/layout/Footer'
+import { MobileActionBar } from './components/layout/MobileActionBar'
 import { Navbar } from './components/layout/Navbar'
 import { About } from './components/sections/About'
 import { Approach } from './components/sections/Approach'
@@ -28,6 +29,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <MobileActionBar />
       </MotionConfig>
     </LazyMotion>
   )

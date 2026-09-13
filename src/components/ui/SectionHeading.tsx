@@ -3,35 +3,36 @@ import { cn } from '../../lib/cn'
 
 interface SectionHeadingProps {
   eyebrow: string
-  /** Wrap part of the title in <em> for the italic gold accent. */
+  /** Wrap part of the title in <em> for the italic accent. */
   title: ReactNode
+  /** Editorial section number, e.g. "01". */
+  index?: string
   id?: string
   tone?: 'light' | 'dark'
   align?: 'left' | 'center'
   className?: string
 }
 
-export function SectionHeading({ eyebrow, title, id, tone = 'light', align = 'left', className }: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, index, id, tone = 'light', align = 'left', className }: SectionHeadingProps) {
   const dark = tone === 'dark'
 
   return (
     <div className={cn(align === 'center' && 'mx-auto text-center', className)}>
-      <p
-        className={cn(
-          'eyebrow flex items-center gap-4',
-          align === 'center' && 'justify-center',
-          dark ? 'text-gold-300' : 'text-gold-700',
+      <p className={cn('flex items-center gap-4', align === 'center' && 'justify-center')}>
+        {index && (
+          <span className={cn('font-serif text-[1.05rem] leading-none italic', dark ? 'text-gold-300' : 'text-gold-600')}>
+            {index}
+          </span>
         )}
-      >
-        <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-        {eyebrow}
+        <span aria-hidden className={cn('h-px w-10', dark ? 'bg-gold-300/50' : 'bg-gold-500/60')} />
+        <span className={cn('eyebrow', dark ? 'text-ivory/80' : 'text-plum-700')}>{eyebrow}</span>
       </p>
       <h2
         id={id}
         className={cn(
-          'mt-5 font-serif text-[clamp(2.35rem,5vw,4.1rem)] leading-[1.05] font-medium tracking-[-0.01em]',
-          '[&_em]:font-normal [&_em]:italic',
-          dark ? 'text-ivory [&_em]:text-gold-300' : 'text-plum-900 [&_em]:text-gold-600',
+          'mt-6 font-serif text-[clamp(2.4rem,4.6vw,4rem)] leading-[1.04] font-normal tracking-[-0.015em]',
+          '[&_em]:italic',
+          dark ? 'text-ivory [&_em]:text-gold-200' : 'text-plum-900 [&_em]:text-plum-700',
         )}
       >
         {title}
