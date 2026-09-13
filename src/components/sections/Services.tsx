@@ -1,6 +1,8 @@
 import { m } from 'framer-motion'
+import { Plus } from 'lucide-react'
 import { images } from '../../content/images'
 import { services, type Service } from '../../content/services'
+import { cn } from '../../lib/cn'
 import { revealMotion } from '../../lib/motion'
 import { TextLink } from '../ui/Button'
 import { Container } from '../ui/Container'
@@ -10,16 +12,24 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 const number = (n: number) => String(n).padStart(2, '0')
 
-function ServiceIcon({ service, large }: { service: Service; large?: boolean }) {
+const iconSizes = {
+  sm: { box: 'size-10', glyph: 'size-[1.125rem]' },
+  md: { box: 'size-12', glyph: 'size-5' },
+  lg: { box: 'size-14', glyph: 'size-6' },
+}
+
+function ServiceIcon({ service, size = 'md', className }: { service: Service; size?: keyof typeof iconSizes; className?: string }) {
   const Icon = service.icon
   return (
     <span
-      className={
-        (large ? 'size-14 ' : 'size-12 ') +
-        'flex items-center justify-center rounded-full border border-gold-500/40 text-plum-700 transition-colors duration-500 ease-luxe group-hover:border-plum-900 group-hover:bg-plum-900 group-hover:text-gold-200'
-      }
+      className={cn(
+        iconSizes[size].box,
+        'flex shrink-0 items-center justify-center rounded-full border border-gold-500/40 text-plum-700 transition-colors duration-500 ease-luxe',
+        'group-hover:border-plum-900 group-hover:bg-plum-900 group-hover:text-gold-200',
+        className,
+      )}
     >
-      <Icon className={large ? 'size-6' : 'size-5'} strokeWidth={1.25} aria-hidden />
+      <Icon className={iconSizes[size].glyph} strokeWidth={1.25} aria-hidden />
     </span>
   )
 }
@@ -27,7 +37,7 @@ function ServiceIcon({ service, large }: { service: Service; large?: boolean }) 
 function FeaturedServiceCard({ service }: { service: Service }) {
   return (
     <m.li {...revealMotion()} className="group grid bg-ivory sm:col-span-2 md:grid-cols-2">
-      <div className="relative min-h-64 overflow-hidden bg-sand md:order-2 md:min-h-full">
+      <div className="relative aspect-[3/2] overflow-hidden bg-sand sm:aspect-auto sm:min-h-64 md:order-2 md:min-h-full">
         <ResponsiveImage
           image={images.featuredService}
           sizes="(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 100vw"
@@ -35,18 +45,18 @@ function FeaturedServiceCard({ service }: { service: Service }) {
           className="absolute inset-0 size-full object-cover transition-transform duration-[1400ms] ease-luxe group-hover:scale-[1.04]"
         />
       </div>
-      <div className="flex flex-col p-8 sm:p-10 lg:p-12">
-        <div className="flex items-start justify-between">
-          <ServiceIcon service={service} large />
+      <div className="flex flex-col p-7 sm:p-10 lg:p-12">
+        <div className="hidden items-start justify-between sm:flex">
+          <ServiceIcon service={service} size="lg" />
           <span aria-hidden className="font-serif text-lg text-gold-600 italic">
             {number(1)}
           </span>
         </div>
-        <div className="mt-auto pt-14">
+        <div className="sm:mt-auto sm:pt-14">
           <p className="eyebrow text-plum-700">End-to-end</p>
           <h3 className="mt-3 font-serif text-[clamp(2rem,3.2vw,2.75rem)] leading-[1.05] text-plum-900">{service.title}</h3>
           <p className="mt-4 max-w-sm text-[0.9375rem] leading-[1.75] text-muted">{service.description}</p>
-          <TextLink href="#contact" className="mt-7">
+          <TextLink href="#contact" className="mt-6 min-h-11 sm:mt-7">
             Start planning
           </TextLink>
         </div>
@@ -55,11 +65,12 @@ function FeaturedServiceCard({ service }: { service: Service }) {
   )
 }
 
+/** Tablet/desktop card. Hidden on phones, where ServiceList takes over. */
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <m.li
       {...revealMotion((index % 3) * 0.06, 16)}
-      className="group relative flex min-h-[18rem] flex-col bg-parchment p-8 transition-colors duration-500 ease-luxe hover:bg-ivory sm:p-10"
+      className="group relative hidden min-h-[18rem] flex-col bg-parchment p-8 transition-colors duration-500 ease-luxe hover:bg-ivory sm:flex sm:p-10"
     >
       <div className="flex items-start justify-between">
         <ServiceIcon service={service} />
@@ -79,13 +90,48 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   )
 }
 
+/**
+ * Phone layout: an index of service names that expand to their description.
+ * Ten full cards would be several screens of scrolling; this keeps every
+ * service scannable in about one screen. Native <details>, no JavaScript.
+ */
+function ServiceList({ items }: { items: Service[] }) {
+  return (
+    <Reveal className="mt-12 sm:hidden">
+      <p className="eyebrow text-muted">Or choose individual services</p>
+      <ul className="mt-4 border-t border-plum-900/10">
+        {items.map((service) => (
+          <li key={service.id} className="border-b border-plum-900/10">
+            <details className="group">
+              <summary className="flex min-h-[4.5rem] cursor-pointer list-none items-center gap-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 [&::-webkit-details-marker]:hidden">
+                <ServiceIcon
+                  service={service}
+                  size="sm"
+                  className="group-open:border-plum-900 group-open:bg-plum-900 group-open:text-gold-200"
+                />
+                <h3 className="flex-1 font-serif text-[1.35rem] leading-tight text-plum-900">{service.title}</h3>
+                <Plus
+                  aria-hidden
+                  strokeWidth={1.25}
+                  className="size-5 shrink-0 text-gold-600 transition-transform duration-500 ease-luxe group-open:rotate-45"
+                />
+              </summary>
+              <p className="pr-9 pb-5 pl-14 text-[0.9375rem] leading-[1.7] text-muted">{service.description}</p>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </Reveal>
+  )
+}
+
 export function Services() {
   const [featured, ...rest] = services
 
   return (
-    <section id="services" aria-labelledby="services-title" className="bg-parchment py-24 sm:py-32 lg:py-40">
+    <section id="services" aria-labelledby="services-title" className="bg-parchment py-20 sm:py-32 lg:py-40">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-7">
             <SectionHeading
               id="services-title"
@@ -99,7 +145,7 @@ export function Services() {
             />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.8] text-muted">
+            <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
               Choose complete wedding planning, or only the services you need — for weddings and events in
               Trivandrum, across Kerala and at the destination of your choice.
             </p>
@@ -107,12 +153,14 @@ export function Services() {
         </div>
 
         {/* gap-px over a tinted background draws consistent hairlines between cells. */}
-        <ul className="mt-14 grid gap-px border border-plum-900/10 bg-plum-900/10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-px border border-plum-900/10 bg-plum-900/10 sm:mt-14 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
           <FeaturedServiceCard service={featured} />
           {rest.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i + 2} />
           ))}
         </ul>
+
+        <ServiceList items={rest} />
       </Container>
     </section>
   )

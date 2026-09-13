@@ -48,7 +48,8 @@ export function EnquiryForm() {
   }
 
   return (
-    <div className="border border-plum-900/10 bg-white p-7 sm:p-12">
+    // Edge-to-edge on phones so fields get the full screen width; a bordered card from sm up.
+    <div className="-mx-6 border-y border-plum-900/10 bg-white px-6 py-10 sm:mx-0 sm:border-x sm:p-12">
       <h3 className="font-serif text-[2.1rem] leading-tight text-plum-900">Send us an enquiry</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Your details open in WhatsApp, ready for you to review and send. Nothing is stored on this website.
@@ -91,18 +92,18 @@ export function EnquiryForm() {
         </div>
 
         <div className="flex flex-col gap-5 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-          <button type="submit" className={buttonClasses('primary', 'cursor-pointer')}>
+          <button type="submit" className={buttonClasses('primary', 'w-full cursor-pointer sm:w-auto')}>
             <WhatsAppIcon className="size-4" />
             Continue on WhatsApp
           </button>
-          <p className="text-sm text-muted">
+          <p className="text-center text-sm text-muted sm:text-left">
             Or{' '}
-            <a href={telHref()} className="inline-flex items-center gap-1.5 text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">
+            <a href={telHref()} className="inline-flex min-h-11 items-center gap-1.5 text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">
               <Phone aria-hidden className="size-3.5" />
               call {primaryPhone.display}
             </a>
             <span className="mx-2 text-muted/50">·</span>
-            <a href={mailtoHref()} className="text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">
+            <a href={mailtoHref()} className="inline-flex min-h-11 items-center text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">
               email us
             </a>
           </p>

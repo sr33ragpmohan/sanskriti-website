@@ -43,7 +43,7 @@ export const images = {
     alt: 'A Kerala bride and groom embraced by family members',
     placeholder: true,
     credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-hugging-each-other-VJP7K4uihUA',
-    position: '40% 40%',
+    position: '45% 15%',
   },
   featuredService: {
     src: 'https://images.unsplash.com/photo-1744805624954-a6686543c3ff',

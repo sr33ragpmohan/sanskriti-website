@@ -6,21 +6,18 @@ import { Button } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
 /**
- * Small-screen contact bar. Appears once the hero is scrolled past and hides
- * again while the Contact section or footer (which carry the same actions) are visible.
+ * Small-screen contact bar in the thumb zone. Slides in shortly after load (so a
+ * visitor arriving from Instagram or WhatsApp has an action on the first screen)
+ * and steps aside while the Contact section or footer — which carry the same
+ * actions — are on screen.
  */
 export function MobileActionBar() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    let pastHero = false
+    let ready = false
     const onScreen = new Set<Element>()
-    const update = () => setVisible(pastHero && onScreen.size === 0)
-
-    const onScroll = () => {
-      pastHero = window.scrollY > window.innerHeight * 0.85
-      update()
-    }
+    const update = () => setVisible(ready && onScreen.size === 0)
 
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
@@ -31,10 +28,14 @@ export function MobileActionBar() {
     })
     document.querySelectorAll('#contact, footer').forEach((el) => observer.observe(el))
 
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
+    // Let the hero entrance play before the bar arrives.
+    const timer = window.setTimeout(() => {
+      ready = true
+      update()
+    }, 900)
+
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      window.clearTimeout(timer)
       observer.disconnect()
     }
   }, [])
@@ -48,12 +49,12 @@ export function MobileActionBar() {
         visible ? 'translate-y-0' : 'translate-y-full',
       )}
     >
-      <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
-        <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />} className="h-12 px-4">
-          WhatsApp
+      <div className="mx-auto grid max-w-lg grid-cols-[1.5fr_1fr] gap-2.5">
+        <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />} className="h-12 px-4 tracking-[0.18em]">
+          WhatsApp Us
         </Button>
-        <Button href={telHref()} variant="outline" icon={<Phone />} className="h-12 bg-ivory px-4">
-          Call Us
+        <Button href={telHref()} variant="outline" icon={<Phone />} className="h-12 bg-ivory px-4 tracking-[0.18em]">
+          Call
         </Button>
       </div>
     </div>

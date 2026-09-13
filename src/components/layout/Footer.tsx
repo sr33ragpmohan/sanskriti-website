@@ -12,7 +12,7 @@ export function Footer() {
 
   return (
     <footer className="bg-plum-950 text-ivory/60">
-      <Container className="pt-20 pb-10 lg:pt-24">
+      <Container className="pt-16 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:pt-20 lg:pt-24">
         <div className="flex flex-col items-center text-center">
           <a href="#top" aria-label={`${site.legalName} — back to top`} className="rounded-full">
             <Logo decorative className="size-20 ring-1 ring-gold-300/25" />
@@ -23,10 +23,11 @@ export function Footer() {
         </div>
 
         <nav aria-label="Footer" className="mt-10">
-          <ul className="eyebrow flex flex-wrap justify-center gap-x-9 gap-y-4 text-ivory/70">
+          <ul className="eyebrow flex flex-wrap justify-center gap-x-7 text-ivory/70 sm:gap-x-9">
             {navigation.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className={linkClass}>
+                {/* Vertical padding gives each label a 44px tap target. */}
+                <a href={item.href} className={`${linkClass} inline-block py-4`}>
                   {item.label}
                 </a>
               </li>
@@ -34,7 +35,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        <ul className="mt-10 flex flex-col items-center gap-3 text-sm sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8">
+        <ul className="mt-10 flex flex-col items-center gap-1 text-center text-sm sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-3 [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&>li]:flex [&>li]:min-h-11 [&>li]:items-center sm:[&_a]:min-h-0 sm:[&>li]:min-h-0">
           <li>
             <a href={telHref()} className={linkClass}>
               {primaryPhone.display}
@@ -64,7 +65,7 @@ export function Footer() {
           </li>
         </ul>
 
-        <div className="mt-16 flex flex-col items-center gap-2 border-t border-ivory/10 pt-8 text-xs text-ivory/40 sm:flex-row sm:justify-between">
+        <div className="mt-14 flex flex-col items-center gap-2 border-t border-ivory/10 pt-8 text-center text-xs leading-relaxed text-ivory/40 sm:mt-16 sm:flex-row sm:justify-between sm:text-left">
           <p>
             © {year} {site.legalName}
           </p>

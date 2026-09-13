@@ -16,7 +16,8 @@ export function CallToAction() {
       className="bg-[linear-gradient(to_bottom,var(--color-parchment)_50%,var(--color-ivory)_50%)]"
     >
       <Container>
-        <Reveal className="relative isolate overflow-hidden bg-plum-950 px-6 py-20 text-center text-ivory sm:px-12 sm:py-24 lg:py-32">
+        {/* Edge-to-edge on phones; an inset panel from sm up. */}
+        <Reveal className="relative isolate -mx-6 overflow-hidden bg-plum-950 px-6 py-16 text-center text-ivory sm:mx-0 sm:px-12 sm:py-24 lg:py-32">
           <ResponsiveImage
             image={images.cta}
             sizes="(min-width: 1344px) 1232px, 100vw"
