@@ -1,5 +1,5 @@
 import { m } from 'framer-motion'
-import { guruvayoorIntro, principles } from '../../content/about'
+import { weddingIntro, principles } from '../../content/about'
 import { images } from '../../content/images'
 import { revealMotion } from '../../lib/motion'
 import { Container } from '../ui/Container'
@@ -10,8 +10,9 @@ import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
 /**
- * Opening section: the Guruvayoor wedding story and Sanskriti's promise.
- * Mobile reads heading → story → promise → photographs → principles.
+ * Opening section: temple weddings (Guruvayoor first, other Kerala temples too),
+ * where Sanskriti plans them, and the promise.
+ * Mobile reads heading → story → temples → promise → photographs → principles.
  * Desktop places the photographs in the left column beside both text blocks.
  *
  * Depth: the two photographs unveil in turn and drift at different speeds, and
@@ -28,31 +29,48 @@ export function About() {
             <SectionHeading
               id="about-title"
               index="01"
-              eyebrow={guruvayoorIntro.eyebrow}
+              eyebrow={weddingIntro.eyebrow}
               title={
                 <>
-                  A wedding at Guruvayoor is <em>more than a ceremony.</em>
+                  A temple wedding is <em>more than a ceremony.</em>
                 </>
               }
             />
 
             <Reveal delay={0.2} className="mt-7 max-w-xl space-y-5 text-[1.0625rem] leading-[1.75] text-muted sm:mt-8 sm:leading-[1.8]">
-              {guruvayoorIntro.paragraphs.map((paragraph) => (
+              {weddingIntro.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+            </Reveal>
+
+            {/* Where we plan weddings — Guruvayoor first as the main focus. */}
+            <Reveal delay={0.25} className="mt-10 max-w-xl sm:mt-12">
+              <h3 className="eyebrow text-plum-700">{weddingIntro.temples.heading}</h3>
+              <p className="mt-3 text-[1.0625rem] leading-[1.75] text-muted">{weddingIntro.temples.intro}</p>
+              <ul className="mt-5 border-t border-plum-900/10">
+                {weddingIntro.temples.names.map((name, i) => (
+                  <li key={name} className="flex items-center gap-4 border-b border-plum-900/10 py-3.5">
+                    <LotusMark className="h-3.5 w-6 shrink-0 text-gold-500" />
+                    <span className={i === 0 ? 'font-serif text-[1.35rem] text-plum-900' : 'font-serif text-[1.2rem] text-plum-900'}>
+                      {name}
+                    </span>
+                    {i === 0 && <span className="eyebrow ml-auto text-gold-600">Our focus</span>}
+                  </li>
+                ))}
+              </ul>
             </Reveal>
 
             {/* The promise — the one idea every visitor should leave with. */}
             <Reveal delay={0.3} className="mt-10 border-l border-gold-500/50 pl-6 sm:mt-12 sm:pl-8">
               <LotusMark className="float-soft h-4 w-7 text-gold-500" />
               <p className="mt-4 font-serif text-[clamp(1.75rem,2.6vw,2.3rem)] leading-[1.18] text-plum-900">
-                {guruvayoorIntro.promise.map((line, i) => (
-                  <span key={line} className={i === guruvayoorIntro.promise.length - 1 ? 'block text-plum-700 italic' : 'block'}>
+                {weddingIntro.promise.map((line, i) => (
+                  <span key={line} className={i === weddingIntro.promise.length - 1 ? 'block text-plum-700 italic' : 'block'}>
                     {line}
                   </span>
                 ))}
               </p>
-              <p className="mt-5 text-sm leading-relaxed text-muted">{guruvayoorIntro.company}</p>
+              <p className="mt-5 text-sm leading-relaxed text-muted">{weddingIntro.company}</p>
             </Reveal>
           </div>
 
