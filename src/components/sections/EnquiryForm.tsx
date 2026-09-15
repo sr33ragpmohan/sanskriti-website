@@ -1,7 +1,8 @@
 import { useId, type FormEvent, type ReactNode } from 'react'
 import { ChevronDown, Phone } from 'lucide-react'
 import { eventTypes } from '../../content/enquiry'
-import { mailtoHref, primaryPhone, telHref, whatsappHref } from '../../lib/contact-links'
+import { mailtoHref, telHref, whatsappHref } from '../../lib/contact-links'
+import { useContactChooser, useOpenContactChooser } from '../contact/ContactChooser'
 import { buttonClasses } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
@@ -23,11 +24,14 @@ function Field({ label, htmlFor, optional, children }: { label: string; htmlFor:
 }
 
 /**
- * No backend needed: the enquiry is composed into a WhatsApp message and
- * opened in WhatsApp, where the visitor reviews and sends it themselves.
+ * No backend needed: the enquiry is composed into a WhatsApp message. The
+ * visitor picks which of our numbers to send it to, then reviews and sends it
+ * in WhatsApp themselves.
  */
 export function EnquiryForm() {
   const id = useId()
+  const openChooser = useOpenContactChooser()
+  const chooseNumber = useContactChooser()
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -44,7 +48,9 @@ export function EnquiryForm() {
     if (value('location')) lines.push(`Location: ${value('location')}`)
     if (value('message')) lines.push('', value('message'))
 
-    window.open(whatsappHref(lines.join('\n')), '_blank', 'noopener,noreferrer')
+    const message = lines.join('\n')
+    if (openChooser) openChooser({ kind: 'whatsapp', message })
+    else window.open(whatsappHref(message), '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -98,9 +104,13 @@ export function EnquiryForm() {
           </button>
           <p className="text-center text-sm text-muted sm:text-left">
             Or{' '}
-            <a href={telHref()} className="inline-flex min-h-11 items-center gap-1.5 text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">
+            <a
+              href={telHref()}
+              onClick={chooseNumber('call')}
+              className="inline-flex min-h-11 items-center gap-1.5 text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600"
+            >
               <Phone aria-hidden className="size-3.5" />
-              call {primaryPhone.display}
+              call us
             </a>
             <span className="mx-2 text-muted/50">·</span>
             <a href={mailtoHref()} className="inline-flex min-h-11 items-center text-plum-900 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">

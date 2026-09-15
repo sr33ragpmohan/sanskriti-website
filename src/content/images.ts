@@ -31,11 +31,11 @@ export const images = {
     position: '46% 50%',
   },
   about: {
-    src: 'https://images.unsplash.com/photo-1783255166275-412695f76a2a',
-    alt: 'Strands of jasmine woven into a bride’s long dark hair',
+    src: 'https://images.unsplash.com/photo-1680490964820-7afb13f2e35c',
+    alt: 'A bride’s hands with red bridal bangles and henna, holding a bouquet of red roses',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/long-dark-hair-adorned-with-jasmine-flowers-oLeO8eLkuEs',
-    position: '50% 40%',
+    credit: 'https://unsplash.com/photos/a-close-up-of-a-brides-hands-holding-a-bouquet-of-flowers-ZQJzMDWyqEI',
+    position: '55% 50%',
   },
   aboutDetail: {
     src: 'https://images.unsplash.com/photo-1775427528127-a66ce3bb2bcb',
@@ -45,11 +45,11 @@ export const images = {
     position: '40% 50%',
   },
   featuredService: {
-    src: 'https://images.unsplash.com/photo-1783255166346-b7c82195ba34',
-    alt: 'A brass pot with coconut, bananas and oil lamps arranged for a wedding ritual',
+    src: 'https://images.unsplash.com/photo-1680490964562-60ee7fd82944',
+    alt: 'A bride and groom’s hennaed hands joined during a Hindu wedding ritual, beside a brass kalash',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/brass-pot-coconut-bananas-and-oil-lamps-for-a-ritual-gc-JtFntUSU',
-    position: '50% 60%',
+    credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-holding-hands-lvZN2e4LPvg',
+    position: '50% 50%',
   },
   cta: {
     // Decorative background — empty alt on purpose.

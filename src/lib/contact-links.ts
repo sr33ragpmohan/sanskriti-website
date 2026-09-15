@@ -8,8 +8,9 @@ export function telHref(e164: string = primaryPhone.e164) {
   return `tel:${e164}`
 }
 
-export function whatsappHref(message: string = DEFAULT_WHATSAPP_MESSAGE) {
-  return `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(message)}`
+/** wa.me needs the international number as digits only (no +). */
+export function whatsappHref(message: string = DEFAULT_WHATSAPP_MESSAGE, e164: string = primaryPhone.e164) {
+  return `https://wa.me/${e164.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`
 }
 
 export function mailtoHref(subject = 'Event enquiry') {

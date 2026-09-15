@@ -4,6 +4,7 @@ import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 import { site } from '../../config/site'
 import { cn } from '../../lib/cn'
 import { mailtoHref, telHref, whatsappHref } from '../../lib/contact-links'
+import { useContactChooser } from '../contact/ContactChooser'
 import { revealMotion } from '../../lib/motion'
 import { Container } from '../ui/Container'
 import { Reveal } from '../ui/Reveal'
@@ -63,6 +64,8 @@ function EmailAddress() {
 const rowLink = cn('group flex min-h-[4.75rem] items-center gap-4 py-4', focusRing)
 
 export function Contact() {
+  const chooseNumber = useContactChooser()
+
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-ivory py-20 sm:py-32 lg:py-40">
       {/* grid-cols-1 (minmax(0,1fr)) stops long unbreakable text from widening the page on phones. */}
@@ -86,7 +89,13 @@ export function Contact() {
           {/* Full-width, thumb-sized contact rows — WhatsApp first. They arrive one after another. */}
           <ul className="mt-10 divide-y divide-plum-900/10 border-y border-plum-900/10">
             <m.li {...revealMotion(0.1, 14)}>
-                <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={rowLink}>
+                <a
+                  href={whatsappHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={chooseNumber('whatsapp')}
+                  className={rowLink}
+                >
                   <RowIcon>
                     <WhatsAppIcon />
                   </RowIcon>

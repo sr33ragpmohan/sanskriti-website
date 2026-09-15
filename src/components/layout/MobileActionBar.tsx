@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Phone } from 'lucide-react'
 import { telHref, whatsappHref } from '../../lib/contact-links'
 import { cn } from '../../lib/cn'
+import { useContactChooser } from '../contact/ContactChooser'
 import { Button } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
@@ -9,10 +10,11 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon'
  * Small-screen contact bar in the thumb zone. Slides in shortly after load (so a
  * visitor arriving from Instagram or WhatsApp has an action on the first screen)
  * and steps aside while the Contact section or footer — which carry the same
- * actions — are on screen.
+ * actions — are on screen. Both buttons open the number chooser.
  */
 export function MobileActionBar() {
   const [visible, setVisible] = useState(false)
+  const chooseNumber = useContactChooser()
 
   useEffect(() => {
     let ready = false
@@ -50,10 +52,23 @@ export function MobileActionBar() {
       )}
     >
       <div className="mx-auto grid max-w-lg grid-cols-[1.5fr_1fr] gap-2.5">
-        <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />} className="h-12 px-4 tracking-[0.18em]">
+        <Button
+          href={whatsappHref()}
+          external
+          variant="primary"
+          icon={<WhatsAppIcon />}
+          onClick={chooseNumber('whatsapp')}
+          className="h-12 px-4 tracking-[0.18em]"
+        >
           WhatsApp Us
         </Button>
-        <Button href={telHref()} variant="outline" icon={<Phone />} className="h-12 bg-ivory px-4 tracking-[0.18em]">
+        <Button
+          href={telHref()}
+          variant="outline"
+          icon={<Phone />}
+          onClick={chooseNumber('call')}
+          className="h-12 bg-ivory px-4 tracking-[0.18em]"
+        >
           Call
         </Button>
       </div>

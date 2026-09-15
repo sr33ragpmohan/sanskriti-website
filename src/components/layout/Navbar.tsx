@@ -4,6 +4,7 @@ import { navigation } from '../../content/navigation'
 import { site } from '../../config/site'
 import { whatsappHref } from '../../lib/contact-links'
 import { cn } from '../../lib/cn'
+import { useContactChooser } from '../contact/ContactChooser'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { Logo } from '../ui/Logo'
@@ -11,6 +12,7 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 import { MobileMenu } from './MobileMenu'
 
 export function Navbar() {
+  const chooseNumber = useContactChooser()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -87,7 +89,14 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />} className="h-11 px-5">
+          <Button
+            href={whatsappHref()}
+            external
+            variant="primary"
+            icon={<WhatsAppIcon />}
+            onClick={chooseNumber('whatsapp')}
+            className="h-11 px-5"
+          >
             WhatsApp Us
           </Button>
         </div>

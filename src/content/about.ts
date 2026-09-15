@@ -3,13 +3,22 @@ export interface Principle {
   description: string
 }
 
-/** Opening section copy — Sanskriti's focus on Guruvayoor weddings. */
-export const guruvayoorIntro = {
-  eyebrow: 'Weddings at Guruvayoor',
+/**
+ * Opening section copy. Sanskriti focuses on Guruvayoor weddings but also plans
+ * weddings at other temples across Kerala — keep both ideas in this section.
+ */
+export const weddingIntro = {
+  eyebrow: 'Temple Weddings in Kerala',
   paragraphs: [
     'It is a deeply meaningful occasion that brings together tradition, family and countless details.',
     'Sanskriti brings together the essential services required to plan and execute your wedding seamlessly — from venue and catering to décor, photography, accommodation, transportation and guest management.',
   ],
+  /** Where we plan weddings. The first entry is our main focus. */
+  temples: {
+    heading: 'Where we plan weddings',
+    intro: 'Our focus is weddings at Guruvayoor, and we also plan weddings at other important temples across Kerala.',
+    names: ['Guruvayoor Temple', 'Attukal Bhagavathy Temple', 'Karikkakom Bhagavathy Temple', 'Other temples across Kerala'],
+  },
   /** Rendered as a three-line pull statement. */
   promise: ['One team.', 'One point of coordination.', 'Every detail taken care of.'],
   company: 'Sanskriti Wedding Planners & Event Organizers is based in Trivandrum and was started by three partners.',
