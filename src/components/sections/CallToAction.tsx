@@ -5,6 +5,7 @@ import { images } from '../../content/images'
 import { useParallax } from '../../hooks/useParallax'
 import { telHref, whatsappHref } from '../../lib/contact-links'
 import { revealMotion } from '../../lib/motion'
+import { useContactChooser } from '../contact/ContactChooser'
 import { AmbientMotes } from '../ui/AmbientMotes'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
@@ -18,6 +19,7 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon'
  * breathes over it and a few specks of lamp light rise; the copy arrives in turn.
  */
 export function CallToAction() {
+  const chooseNumber = useContactChooser()
   const panelRef = useRef<HTMLDivElement>(null)
   const backdropDrift = useParallax(panelRef, 28)
 
@@ -66,10 +68,23 @@ export function CallToAction() {
             {...revealMotion(0.42, 14)}
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
           >
-            <Button href={whatsappHref()} external variant="light" icon={<WhatsAppIcon />} className="w-full sm:w-auto">
+            <Button
+              href={whatsappHref()}
+              external
+              variant="light"
+              icon={<WhatsAppIcon />}
+              onClick={chooseNumber('whatsapp')}
+              className="w-full sm:w-auto"
+            >
               WhatsApp Us
             </Button>
-            <Button href={telHref()} variant="outline-light" icon={<Phone />} className="w-full sm:w-auto">
+            <Button
+              href={telHref()}
+              variant="outline-light"
+              icon={<Phone />}
+              onClick={chooseNumber('call')}
+              className="w-full sm:w-auto"
+            >
               Call Us
             </Button>
           </m.div>

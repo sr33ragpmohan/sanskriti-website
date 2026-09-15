@@ -45,11 +45,11 @@ export const images = {
     position: '40% 50%',
   },
   featuredService: {
-    src: 'https://images.unsplash.com/photo-1745573674206-1d4805fcc427',
-    alt: 'A wedding stage decorated with red and white flowers, drapes and seating for the couple',
+    src: 'https://images.unsplash.com/photo-1680490964562-60ee7fd82944',
+    alt: 'A bride and groom’s hennaed hands joined during a Hindu wedding ritual, beside a brass kalash',
     placeholder: true,
-    credit: 'https://unsplash.com/photos/a-beautifully-decorated-stage-for-a-wedding-owF2GbJnxlc',
-    position: '50% 55%',
+    credit: 'https://unsplash.com/photos/a-couple-of-people-that-are-holding-hands-lvZN2e4LPvg',
+    position: '50% 50%',
   },
   cta: {
     // Decorative background — empty alt on purpose.

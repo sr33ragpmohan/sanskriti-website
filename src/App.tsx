@@ -1,4 +1,5 @@
 import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion'
+import { ContactChooserProvider } from './components/contact/ContactChooser'
 import { Footer } from './components/layout/Footer'
 import { MobileActionBar } from './components/layout/MobileActionBar'
 import { Navbar } from './components/layout/Navbar'
@@ -15,21 +16,24 @@ export default function App() {
     // LazyMotion + `m` components keep the animation bundle small.
     <LazyMotion features={domAnimation} strict>
       <MotionConfig reducedMotion="user">
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Navbar />
-        <main id="main">
-          <Hero />
-          <About />
-          <Services />
-          <Approach />
-          <Gallery />
-          <CallToAction />
-          <Contact />
-        </main>
-        <Footer />
-        <MobileActionBar />
+        {/* Every WhatsApp / Call button opens a chooser for the three numbers. */}
+        <ContactChooserProvider>
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
+          <Navbar />
+          <main id="main">
+            <Hero />
+            <About />
+            <Services />
+            <Approach />
+            <Gallery />
+            <CallToAction />
+            <Contact />
+          </main>
+          <Footer />
+          <MobileActionBar />
+        </ContactChooserProvider>
       </MotionConfig>
     </LazyMotion>
   )

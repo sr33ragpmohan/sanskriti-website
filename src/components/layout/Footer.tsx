@@ -3,6 +3,7 @@ import { navigation } from '../../content/navigation'
 import { site } from '../../config/site'
 import { mailtoHref, primaryPhone, telHref, whatsappHref } from '../../lib/contact-links'
 import { revealMotion } from '../../lib/motion'
+import { useContactChooser } from '../contact/ContactChooser'
 import { Container } from '../ui/Container'
 import { Logo } from '../ui/Logo'
 import { Ornament } from '../ui/Lotus'
@@ -10,6 +11,7 @@ import { Ornament } from '../ui/Lotus'
 const linkClass = 'transition-colors duration-300 hover:text-ivory focus-visible:text-ivory focus-visible:outline-none'
 
 export function Footer() {
+  const chooseNumber = useContactChooser()
   const year = new Date().getFullYear()
 
   return (
@@ -49,7 +51,13 @@ export function Footer() {
             ·
           </li>
           <li>
-            <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            <a
+              href={whatsappHref()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={chooseNumber('whatsapp')}
+              className={linkClass}
+            >
               WhatsApp
             </a>
           </li>

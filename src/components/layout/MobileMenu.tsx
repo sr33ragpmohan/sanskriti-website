@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type MouseEvent } from 'react'
 import { m } from 'framer-motion'
 import { Phone } from 'lucide-react'
 import { navigation } from '../../content/navigation'
 import { site } from '../../config/site'
 import { mailtoHref, telHref, whatsappHref } from '../../lib/contact-links'
 import { EASE_LUXE } from '../../lib/motion'
+import { useContactChooser, type ContactKind } from '../contact/ContactChooser'
 import { Button } from '../ui/Button'
 import { Ornament } from '../ui/Lotus'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
@@ -15,10 +16,17 @@ interface MobileMenuProps {
 
 export function MobileMenu({ onNavigate }: MobileMenuProps) {
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
+  const chooseNumber = useContactChooser()
 
   useEffect(() => {
     firstLinkRef.current?.focus({ preventScroll: true })
   }, [])
+
+  /** Close the menu, then let the visitor pick a number. */
+  const contact = (kind: ContactKind) => (event: MouseEvent<HTMLElement>) => {
+    onNavigate()
+    chooseNumber(kind)(event)
+  }
 
   return (
     <m.div
@@ -65,10 +73,10 @@ export function MobileMenu({ onNavigate }: MobileMenuProps) {
           {site.location.city} · {site.location.region}
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />}>
+          <Button href={whatsappHref()} external variant="primary" icon={<WhatsAppIcon />} onClick={contact('whatsapp')}>
             WhatsApp Us
           </Button>
-          <Button href={telHref()} variant="outline" icon={<Phone />}>
+          <Button href={telHref()} variant="outline" icon={<Phone />} onClick={contact('call')}>
             Call Us
           </Button>
         </div>
