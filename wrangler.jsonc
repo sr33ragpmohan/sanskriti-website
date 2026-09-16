@@ -6,6 +6,11 @@
   // `name` must match the Worker name in the Cloudflare dashboard.
   "name": "sanskriti-website",
   "compatibility_date": "2026-09-01",
+  // Serve the site only on the custom domains (added in the dashboard under
+  // Settings → Domains & Routes). Without these two lines every deploy
+  // turns the public *.workers.dev address and preview URLs back on.
+  "workers_dev": false,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist"
   }
