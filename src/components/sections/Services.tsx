@@ -162,7 +162,7 @@ export function Services() {
           </div>
           <Reveal delay={0.2} className="lg:col-span-4 lg:col-start-9">
             <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
-              Choose complete wedding planning, or only the services you need — for weddings at Guruvayoor and other
+              Choose complete wedding planning, or only the services you need — for weddings at Guruvayur and other
               temples across Kerala, and for events of your own.
             </p>
           </Reveal>

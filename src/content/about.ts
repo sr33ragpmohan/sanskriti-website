@@ -4,7 +4,7 @@ export interface Principle {
 }
 
 /**
- * Opening section copy. Sanskriti focuses on Guruvayoor weddings but also plans
+ * Opening section copy. Sanskriti focuses on Guruvayur weddings but also plans
  * weddings at other temples across Kerala — keep both ideas in this section.
  */
 export const weddingIntro = {
@@ -16,8 +16,8 @@ export const weddingIntro = {
   /** Where we plan weddings. The first entry is our main focus. */
   temples: {
     heading: 'Where we plan weddings',
-    intro: 'Our focus is weddings at Guruvayoor, and we also plan weddings at other important temples across Kerala.',
-    names: ['Guruvayoor Temple', 'Attukal Bhagavathy Temple', 'Karikkakom Bhagavathy Temple', 'Other temples across Kerala'],
+    intro: 'Our focus is weddings at Guruvayur, and we also plan weddings at other important temples across Kerala.',
+    names: ['Guruvayur Temple', 'Attukal Bhagavathy Temple', 'Karikkakom Bhagavathy Temple', 'Other temples across Kerala'],
   },
   /** Rendered as a three-line pull statement. */
   promise: ['One team.', 'One point of coordination.', 'Every detail taken care of.'],

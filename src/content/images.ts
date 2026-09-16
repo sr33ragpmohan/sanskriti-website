@@ -10,8 +10,8 @@ import type { ImageAsset } from '../lib/images'
  * wedding as Sanskriti's work.
  *
  * To replace one with real photography:
- *   1. Put the file in /public/images/ (e.g. /public/images/gallery/guruvayoor-ceremony.jpg).
- *   2. Change `src` to '/images/gallery/guruvayoor-ceremony.jpg'.
+ *   1. Put the file in /public/images/ (e.g. /public/images/gallery/guruvayur-ceremony.jpg).
+ *   2. Change `src` to '/images/gallery/guruvayur-ceremony.jpg'.
  *   3. Update `alt`, and set `placeholder: false` (or delete the line).
  * Once no gallery image is a placeholder, the "visual inspiration" note disappears.
  *

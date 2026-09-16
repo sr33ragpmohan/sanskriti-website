@@ -10,7 +10,7 @@ import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
 /**
- * Opening section: temple weddings (Guruvayoor first, other Kerala temples too),
+ * Opening section: temple weddings (Guruvayur first, other Kerala temples too),
  * where Sanskriti plans them, and the promise.
  * Mobile reads heading → story → temples → promise → photographs → principles.
  * Desktop places the photographs in the left column beside both text blocks.
@@ -43,7 +43,7 @@ export function About() {
               ))}
             </Reveal>
 
-            {/* Where we plan weddings — Guruvayoor first as the main focus. */}
+            {/* Where we plan weddings — Guruvayur first as the main focus. */}
             <Reveal delay={0.25} className="mt-10 max-w-xl sm:mt-12">
               <h3 className="eyebrow text-plum-700">{weddingIntro.temples.heading}</h3>
               <p className="mt-3 text-[1.0625rem] leading-[1.75] text-muted">{weddingIntro.temples.intro}</p>
