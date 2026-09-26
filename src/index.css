@@ -30,7 +30,7 @@
   --color-gold-600: #8c6c34;
 
   --color-ink: #2a1a24;
-  --color-muted: #6b5c64;
+  --color-muted: #574a52;
 
   --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -71,9 +71,11 @@
 
 /* Small uppercase label used for eyebrows, navigation and buttons. */
 @utility eyebrow {
-  font-size: 0.6875rem;
+  /* Sized and spaced for older readers: wide tracking at a tiny size is the
+     hardest combination to read, so the label is larger and less spaced out. */
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 

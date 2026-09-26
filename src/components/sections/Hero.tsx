@@ -2,6 +2,7 @@ import { useRef, type CSSProperties } from 'react'
 import { m, useTransform } from 'framer-motion'
 import { images } from '../../content/images'
 import { site } from '../../config/site'
+import { cn } from '../../lib/cn'
 import { useParallax } from '../../hooks/useParallax'
 import { useDepthLayer, usePointerDepth } from '../../hooks/usePointerDepth'
 import { AmbientMotes } from '../ui/AmbientMotes'
@@ -26,6 +27,16 @@ import { ResponsiveImage } from '../ui/ResponsiveImage'
  *   (text least, medallion most). Scrolling away, the photo lags and the
  *   medallion leads. The gold outline and medallion float a few pixels.
  */
+/**
+ * The desktop hero keeps the original sizes for its intro and buttons — the
+ * headline carries the section there, and larger copy crowded it. The
+ * "Sanskriti · Wedding Planners & Event Organizers" label is the exception:
+ * it names the business, so it stays at the site-wide (larger) label size.
+ * Phones keep the larger sizes throughout — the hero is read close up there.
+ */
+const HERO_DESKTOP_CAPTION = 'lg:text-[0.6875rem] lg:tracking-[0.26em]'
+const HERO_DESKTOP_CTA = 'lg:text-[0.6875rem] lg:tracking-[0.22em]'
+
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -120,7 +131,7 @@ export function Hero() {
             </m.div>
           </div>
           <p
-            className="hero-rise eyebrow mt-8 hidden justify-end gap-3 text-muted lg:flex"
+            className={cn('hero-rise eyebrow mt-8 hidden justify-end gap-3 text-muted lg:flex', HERO_DESKTOP_CAPTION)}
             style={{ animationDelay: '1100ms' }}
           >
             Planning <span className="text-gold-500">·</span> Design <span className="text-gold-500">·</span> Coordination
@@ -129,7 +140,7 @@ export function Hero() {
 
         <div className="pt-4 sm:pt-0 lg:col-span-6 lg:row-start-2 lg:pt-10">
           <p
-            className="hero-rise max-w-md text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]"
+            className="hero-rise max-w-md text-[1.1875rem] leading-[1.75] text-muted sm:leading-[1.8] lg:text-[1.0625rem]"
             style={{ animationDelay: '640ms' }}
           >
             From intimate celebrations to grand weddings, Sanskriti brings together planning, design and seamless event
@@ -139,10 +150,10 @@ export function Hero() {
             className="hero-rise mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center sm:gap-9"
             style={{ animationDelay: '800ms' }}
           >
-            <Button href="#contact" variant="primary" arrow className="w-full sm:w-auto">
+            <Button href="#contact" variant="primary" arrow className={cn('w-full sm:w-auto', HERO_DESKTOP_CTA)}>
               Plan Your Event
             </Button>
-            <TextLink href="#services" className="min-h-11 self-center sm:self-auto">
+            <TextLink href="#services" className={cn('min-h-11 self-center sm:self-auto', HERO_DESKTOP_CTA)}>
               Explore Our Services
             </TextLink>
           </div>

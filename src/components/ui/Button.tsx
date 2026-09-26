@@ -15,7 +15,7 @@ const variants: Record<ButtonVariant, string> = {
 export function buttonClasses(variant: ButtonVariant = 'primary', className?: string) {
   return cn(
     'group relative isolate inline-flex h-13 items-center justify-center gap-3 overflow-hidden rounded-[1px] px-7',
-    'text-[0.6875rem] font-semibold tracking-[0.22em] whitespace-nowrap uppercase',
+    'text-[0.8125rem] font-semibold tracking-[0.16em] whitespace-nowrap uppercase',
     // Hover: a 2px lift, a soft shadow and the colour change, all on one easing.
     'transition-[background-color,color,border-color,box-shadow,translate] duration-500 ease-luxe hover:-translate-y-0.5',
     // Shine: a soft diagonal highlight that sweeps across once, behind the label.
@@ -72,7 +72,7 @@ export function TextLink({ tone = 'dark', className, children, ...rest }: TextLi
   return (
     <a
       className={cn(
-        'group inline-flex items-center gap-3 py-2 text-[0.6875rem] font-semibold tracking-[0.22em] uppercase',
+        'group inline-flex items-center gap-3 py-2 text-[0.8125rem] font-semibold tracking-[0.16em] uppercase',
         'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500',
         tone === 'dark' ? 'text-plum-900' : 'text-ivory',
         className,

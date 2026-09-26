@@ -37,7 +37,7 @@ export function About() {
               }
             />
 
-            <Reveal delay={0.2} className="mt-7 max-w-xl space-y-5 text-[1.0625rem] leading-[1.75] text-muted sm:mt-8 sm:leading-[1.8]">
+            <Reveal delay={0.2} className="mt-7 max-w-xl space-y-5 text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted sm:mt-8 sm:leading-[1.8]">
               {weddingIntro.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -46,7 +46,7 @@ export function About() {
             {/* Where we plan weddings — Guruvayur first as the main focus. */}
             <Reveal delay={0.25} className="mt-10 max-w-xl sm:mt-12">
               <h3 className="eyebrow text-plum-700">{weddingIntro.temples.heading}</h3>
-              <p className="mt-3 text-[1.0625rem] leading-[1.75] text-muted">{weddingIntro.temples.intro}</p>
+              <p className="mt-3 text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted">{weddingIntro.temples.intro}</p>
               <ul className="mt-5 border-t border-plum-900/10">
                 {weddingIntro.temples.names.map((name, i) => (
                   <li key={name} className="flex items-center gap-4 border-b border-plum-900/10 py-3.5">
@@ -70,7 +70,7 @@ export function About() {
                   </span>
                 ))}
               </p>
-              <p className="mt-5 text-sm leading-relaxed text-muted">{weddingIntro.company}</p>
+              <p className="mt-5 text-[1.0625rem] lg:text-[1.125rem] leading-relaxed text-muted">{weddingIntro.company}</p>
             </Reveal>
           </div>
 
@@ -106,7 +106,7 @@ export function About() {
             {principles.map((principle, i) => (
               <m.li key={principle.title} {...revealMotion(0.05 * i, 14)} className="border-t border-plum-900/10 py-4 sm:py-5">
                 <h3 className="font-serif text-[1.2rem] leading-snug text-plum-900 sm:text-[1.3rem]">{principle.title}</h3>
-                <p className="mt-1.5 hidden text-[0.9375rem] leading-relaxed text-muted sm:block">{principle.description}</p>
+                <p className="mt-1.5 hidden text-[1.0625rem] lg:text-[1.125rem] leading-relaxed text-muted sm:block">{principle.description}</p>
               </m.li>
             ))}
           </ul>
