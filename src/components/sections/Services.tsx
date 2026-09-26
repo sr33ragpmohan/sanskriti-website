@@ -66,7 +66,7 @@ function FeaturedServiceCard({ service }: { service: Service }) {
         <div className="sm:mt-auto sm:pt-14">
           <p className="eyebrow text-plum-700">End-to-end</p>
           <h3 className="mt-3 font-serif text-[clamp(2rem,3.2vw,2.75rem)] leading-[1.05] text-plum-900">{service.title}</h3>
-          <p className="mt-4 max-w-sm text-[0.9375rem] leading-[1.75] text-muted">{service.description}</p>
+          <p className="mt-4 max-w-sm text-[1.0625rem] lg:text-[1.125rem] leading-[1.75] text-muted">{service.description}</p>
           <TextLink href="#contact" className="mt-6 min-h-11 sm:mt-7">
             Start planning
           </TextLink>
@@ -96,7 +96,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       </div>
 
       <h3 className="mt-auto pt-12 font-serif text-[1.55rem] leading-tight text-plum-900">{service.title}</h3>
-      <p className="mt-3 text-[0.9375rem] leading-[1.7] text-muted">{service.description}</p>
+      <p className="mt-3 text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] text-muted">{service.description}</p>
 
       <span
         aria-hidden
@@ -132,7 +132,7 @@ function ServiceList({ items }: { items: Service[] }) {
                   className="size-5 shrink-0 text-gold-600 transition-transform duration-500 ease-luxe group-open:rotate-45"
                 />
               </summary>
-              <p className="pr-9 pb-5 pl-14 text-[0.9375rem] leading-[1.7] text-muted">{service.description}</p>
+              <p className="pr-9 pb-5 pl-14 text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] text-muted">{service.description}</p>
             </details>
           </li>
         ))}
@@ -161,7 +161,7 @@ export function Services() {
             />
           </div>
           <Reveal delay={0.2} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
+            <p className="text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted sm:leading-[1.8]">
               Choose complete wedding planning, or only the services you need — for weddings at Guruvayur and other
               temples across Kerala, and for events of your own.
             </p>

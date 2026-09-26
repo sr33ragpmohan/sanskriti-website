@@ -129,7 +129,7 @@ export function Hero() {
 
         <div className="pt-4 sm:pt-0 lg:col-span-6 lg:row-start-2 lg:pt-10">
           <p
-            className="hero-rise max-w-md text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]"
+            className="hero-rise max-w-md text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted sm:leading-[1.8]"
             style={{ animationDelay: '640ms' }}
           >
             From intimate celebrations to grand weddings, Sanskriti brings together planning, design and seamless event

@@ -61,7 +61,7 @@ export function CallToAction() {
           >
             Let’s Create Something <em className="text-gold-200 italic">Beautiful.</em>
           </m.h2>
-          <m.p {...revealMotion(0.3, 18)} className="mx-auto mt-6 max-w-lg text-[1.0625rem] leading-[1.8] text-ivory/75">
+          <m.p {...revealMotion(0.3, 18)} className="mx-auto mt-6 max-w-lg text-[1.1875rem] lg:text-[1.3125rem] leading-[1.8] text-ivory/75">
             Tell us about your wedding or event, and let’s start planning a celebration that feels uniquely yours.
           </m.p>
           <m.div

@@ -45,7 +45,7 @@ function RowText({ label, valueClassName, children }: { label: string; valueClas
   return (
     <span className="min-w-0 flex-1">
       <span className="eyebrow block text-muted">{label}</span>
-      <span className={cn('mt-1 block text-[1.0625rem] leading-snug text-plum-900', valueClassName)}>{children}</span>
+      <span className={cn('mt-1 block text-[1.1875rem] lg:text-[1.3125rem] leading-snug text-plum-900', valueClassName)}>{children}</span>
     </span>
   )
 }
@@ -81,7 +81,7 @@ export function Contact() {
               </>
             }
           />
-          <m.p {...revealMotion(0.2, 18)} className="mt-6 leading-[1.75] text-muted lg:text-lg">
+          <m.p {...revealMotion(0.2, 18)} className="mt-6 text-[1.1875rem] leading-[1.75] text-muted lg:text-[1.3125rem]">
             Share a few details about your wedding or event — the date, the place and the kind of celebration you have in
             mind — and we will get back to you to talk it through.
           </m.p>
@@ -115,7 +115,7 @@ export function Contact() {
                       <li key={phone.e164}>
                         <a
                           href={telHref(phone.e164)}
-                          className={cn('group flex min-h-12 items-center justify-between gap-3 text-[1.0625rem] text-plum-900', focusRing)}
+                          className={cn('group flex min-h-12 items-center justify-between gap-3 text-[1.1875rem] lg:text-[1.3125rem] text-plum-900', focusRing)}
                         >
                           {phone.display}
                           <RowArrow />
@@ -132,7 +132,7 @@ export function Contact() {
                     <Mail strokeWidth={1.4} />
                   </RowIcon>
                   {/* The address is long: slightly smaller on phones, arrow dropped on the narrowest screens. */}
-                  <RowText label="Email" valueClassName="text-[0.9375rem] [overflow-wrap:anywhere] min-[400px]:text-[1.0625rem]">
+                  <RowText label="Email" valueClassName="text-[1.0625rem] [overflow-wrap:anywhere] min-[400px]:text-[1.1875rem] lg:text-[1.3125rem]">
                     <EmailAddress />
                   </RowText>
                   <RowArrow className="max-[399px]:hidden" />

@@ -27,7 +27,7 @@ export function Approach() {
           />
           <m.p
             {...revealMotion(0.2, 18)}
-            className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.75] text-muted sm:mt-7 sm:leading-[1.8] lg:mx-auto"
+            className="mt-6 max-w-2xl text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted sm:mt-7 sm:leading-[1.8] lg:mx-auto"
           >
             Every celebration is different, so our planning begins with you. This is the approach we bring to each
             wedding and event — four stages that keep every detail considered and every moving piece in step.
@@ -60,8 +60,8 @@ export function Approach() {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div className="pt-2.5 sm:pt-4 lg:pt-8">
-                <h3 className="eyebrow text-[0.75rem] tracking-[0.3em] text-plum-900">{step.title}</h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-[1.7] text-muted sm:mt-3 sm:leading-[1.75] lg:mx-auto lg:max-w-[16rem]">
+                <h3 className="eyebrow text-[0.875rem] tracking-[0.2em] text-plum-900">{step.title}</h3>
+                <p className="mt-2.5 text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] text-muted sm:mt-3 sm:leading-[1.75] lg:mx-auto lg:max-w-[16rem]">
                   {step.description}
                 </p>
               </div>

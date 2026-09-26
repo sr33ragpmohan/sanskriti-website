@@ -40,12 +40,12 @@ export function Gallery() {
             />
           </div>
           <Reveal delay={0.2} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-muted sm:leading-[1.8]">
+            <p className="text-[1.1875rem] lg:text-[1.3125rem] leading-[1.75] text-muted sm:leading-[1.8]">
               Ceremonies, rituals and the quiet moments in between — each shaped by its setting, its traditions and the
               people at its heart.
             </p>
             {hasPlaceholders && (
-              <p className="mt-4 text-xs leading-relaxed text-muted/80">
+              <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted/80">
                 Imagery shown is for visual inspiration. Photographs from Sanskriti celebrations will be added here.
               </p>
             )}

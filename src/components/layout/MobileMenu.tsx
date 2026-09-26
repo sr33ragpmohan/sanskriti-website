@@ -80,7 +80,7 @@ export function MobileMenu({ onNavigate }: MobileMenuProps) {
             Call Us
           </Button>
         </div>
-        <a href={mailtoHref()} className="mt-5 block text-center text-sm text-muted [overflow-wrap:anywhere]">
+        <a href={mailtoHref()} className="mt-5 block text-center text-[1.0625rem] lg:text-[1.125rem] text-muted [overflow-wrap:anywhere]">
           {site.contact.email}
         </a>
       </m.div>

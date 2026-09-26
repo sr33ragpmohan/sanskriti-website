@@ -62,14 +62,14 @@ export function Navbar() {
           <Logo decorative className="size-11 ring-1 ring-gold-500/30 lg:size-12" />
           <span className="flex flex-col leading-none">
             <span className="font-serif text-[1.4rem] font-medium tracking-[0.24em] uppercase">{site.name}</span>
-            <span className="mt-1.5 text-[0.53rem] font-semibold tracking-[0.22em] text-gold-600 uppercase max-[399px]:hidden">
+            <span className="mt-1.5 text-[0.6875rem] font-semibold tracking-[0.16em] text-gold-600 uppercase max-[399px]:hidden">
               {site.tagline}
             </span>
           </span>
         </a>
 
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-10">
+          <ul className="flex items-center gap-8 xl:gap-10">
             {navigation.map((item) => (
               <li key={item.href}>
                 <a

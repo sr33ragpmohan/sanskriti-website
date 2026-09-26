@@ -7,7 +7,7 @@ import { buttonClasses } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
 const fieldClass =
-  'mt-2 block w-full rounded-none border-0 border-b border-plum-900/20 bg-transparent px-0 py-3 text-base text-ink ' +
+  'mt-2 block w-full rounded-none border-0 border-b border-plum-900/20 bg-transparent px-0 py-3 text-[1.125rem] text-ink ' +
   'placeholder:text-muted/55 transition-[border-color,box-shadow] duration-300 ' +
   'focus:border-gold-600 focus:shadow-[0_1px_0_0_var(--color-gold-600)] focus:outline-none'
 
@@ -57,7 +57,7 @@ export function EnquiryForm() {
     // Edge-to-edge on phones so fields get the full screen width; a bordered card from sm up.
     <div className="-mx-6 border-y border-plum-900/10 bg-white px-6 py-10 sm:mx-0 sm:border-x sm:p-12">
       <h3 className="font-serif text-[2.1rem] leading-tight text-plum-900">Send us an enquiry</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted">
+      <p className="mt-2 text-[1.0625rem] lg:text-[1.125rem] leading-relaxed text-muted">
         Your details open in WhatsApp, ready for you to review and send. Nothing is stored on this website.
       </p>
 
@@ -102,7 +102,7 @@ export function EnquiryForm() {
             <WhatsAppIcon className="size-4" />
             Continue on WhatsApp
           </button>
-          <p className="text-center text-sm text-muted sm:text-left">
+          <p className="text-center text-[1.0625rem] lg:text-[1.125rem] text-muted sm:text-left">
             Or{' '}
             <a
               href={telHref()}

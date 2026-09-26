@@ -23,7 +23,7 @@ export function Footer() {
             <Logo decorative className="size-20 ring-1 ring-gold-300/25" />
           </a>
           <p className="mt-7 font-serif text-[1.9rem] leading-none tracking-[0.3em] text-ivory uppercase">{site.name}</p>
-          <p className="mt-3 text-[0.6rem] font-semibold tracking-[0.24em] text-gold-300/75 uppercase">{site.tagline}</p>
+          <p className="mt-3 text-[0.75rem] font-semibold tracking-[0.18em] text-gold-300/75 uppercase">{site.tagline}</p>
           <Ornament className="mt-10 w-full max-w-sm text-gold-300/70" />
         </m.div>
 
@@ -40,7 +40,7 @@ export function Footer() {
           </ul>
         </m.nav>
 
-        <m.ul {...revealMotion(0.22, 12)} className="mt-10 flex flex-col items-center gap-1 text-center text-sm sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-3 [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&>li]:flex [&>li]:min-h-11 [&>li]:items-center sm:[&_a]:min-h-0 sm:[&>li]:min-h-0">
+        <m.ul {...revealMotion(0.22, 12)} className="mt-10 flex flex-col items-center gap-1 text-center text-[1.0625rem] lg:text-[1.125rem] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8 sm:gap-y-3 [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&>li]:flex [&>li]:min-h-11 [&>li]:items-center sm:[&_a]:min-h-0 sm:[&>li]:min-h-0">
           <li>
             <a href={telHref()} className={linkClass}>
               {primaryPhone.display}
@@ -77,7 +77,7 @@ export function Footer() {
           </li>
         </m.ul>
 
-        <div className="mt-14 flex flex-col items-center gap-2 border-t border-ivory/10 pt-8 text-center text-xs leading-relaxed text-ivory/40 sm:mt-16 sm:flex-row sm:justify-between sm:text-left">
+        <div className="mt-14 flex flex-col items-center gap-2 border-t border-ivory/10 pt-8 text-center text-[0.9375rem] leading-relaxed text-ivory/60 sm:mt-16 sm:flex-row sm:justify-between sm:text-left">
           <p>
             © {year} {site.legalName}
           </p>

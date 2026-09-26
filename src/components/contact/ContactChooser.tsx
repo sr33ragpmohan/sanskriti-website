@@ -146,7 +146,7 @@ function ChooserDialog({ request, onClose }: { request: ChooserRequest; onClose:
             <X className="size-5" strokeWidth={1.5} aria-hidden />
           </button>
         </div>
-        <p className="mt-2 text-sm leading-relaxed text-muted">All three numbers reach the Sanskriti team.</p>
+        <p className="mt-2 text-[1.0625rem] lg:text-[1.125rem] leading-relaxed text-muted">All three numbers reach the Sanskriti team.</p>
 
         <ul className="mt-6 border-t border-plum-900/10">
           {site.contact.phones.map((phone) => (
@@ -163,7 +163,7 @@ function ChooserDialog({ request, onClose }: { request: ChooserRequest; onClose:
                 >
                   {icon}
                 </span>
-                <span className="flex-1 text-[1.125rem] text-plum-900">{phone.display}</span>
+                <span className="flex-1 text-[1.3125rem] text-plum-900">{phone.display}</span>
                 <span className="eyebrow flex items-center gap-2 text-gold-600">
                   {text.action}
                   <ArrowRight
