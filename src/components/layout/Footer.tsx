@@ -73,7 +73,7 @@ export function Footer() {
             ·
           </li>
           <li>
-            {site.location.city} ({site.location.cityOfficial}), {site.location.region}
+            {site.location.cityOfficial}, {site.location.region}
           </li>
         </m.ul>
 

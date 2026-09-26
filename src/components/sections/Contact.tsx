@@ -144,7 +144,7 @@ export function Contact() {
                   <MapPin strokeWidth={1.4} />
                 </RowIcon>
                 <RowText label="Location">
-                  {site.location.city} ({site.location.cityOfficial}), {site.location.region}
+                  {site.location.cityOfficial}, {site.location.region}
                 </RowText>
               </m.li>
             </ul>
