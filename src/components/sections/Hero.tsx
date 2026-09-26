@@ -28,11 +28,13 @@ import { ResponsiveImage } from '../ui/ResponsiveImage'
  *   medallion leads. The gold outline and medallion float a few pixels.
  */
 /**
- * The desktop hero keeps its original, finer lettering: at that size the
- * headline carries the section on its own, and larger labels crowded it.
- * Phones keep the site-wide (larger) sizes — the hero is read close up there.
+ * The desktop hero keeps the original sizes for its intro and buttons — the
+ * headline carries the section there, and larger copy crowded it. The
+ * "Sanskriti · Wedding Planners & Event Organizers" label is the exception:
+ * it names the business, so it stays at the site-wide (larger) label size.
+ * Phones keep the larger sizes throughout — the hero is read close up there.
  */
-const HERO_DESKTOP_LABEL = 'lg:text-[0.6875rem] lg:tracking-[0.26em]'
+const HERO_DESKTOP_CAPTION = 'lg:text-[0.6875rem] lg:tracking-[0.26em]'
 const HERO_DESKTOP_CTA = 'lg:text-[0.6875rem] lg:tracking-[0.22em]'
 
 export function Hero() {
@@ -64,9 +66,7 @@ export function Hero() {
             <span className="eyebrow text-plum-700 sm:hidden">
               {site.name} · {site.location.region}
             </span>
-            {/* Desktop keeps the hero's original, finer label; phones use the
-                site-wide (larger) label size. */}
-            <span className={cn('eyebrow hidden text-plum-700 sm:inline', HERO_DESKTOP_LABEL)}>
+            <span className="eyebrow hidden text-plum-700 sm:inline">
               {site.name} · {site.tagline}
             </span>
           </p>
@@ -131,7 +131,7 @@ export function Hero() {
             </m.div>
           </div>
           <p
-            className={cn('hero-rise eyebrow mt-8 hidden justify-end gap-3 text-muted lg:flex', HERO_DESKTOP_LABEL)}
+            className={cn('hero-rise eyebrow mt-8 hidden justify-end gap-3 text-muted lg:flex', HERO_DESKTOP_CAPTION)}
             style={{ animationDelay: '1100ms' }}
           >
             Planning <span className="text-gold-500">·</span> Design <span className="text-gold-500">·</span> Coordination
